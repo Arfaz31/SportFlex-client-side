@@ -64,7 +64,7 @@ const HeroSection = () => {
                     <p className="lg:text-2xl text-sm font-bold text-[#00cde5] ">
                       {slider.offer}
                     </p>
-                    <h1 className="text-white lg:text-[40px] text-xl font-bold  lg:tracking-wide lg:leading-normal max-w-[15ch] lg:pb-6 pb-3">
+                    <h1 className="text-white xl:text-[40px] lg:text-3xl text-xl font-bold  lg:tracking-wide lg:leading-normal max-w-[15ch] lg:pb-6 pb-3">
                       {slider.title}
                     </h1>
                     <Button className="bg-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
@@ -76,10 +76,10 @@ const HeroSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute left-8 lg:top-1/2 md:top-[50%] top-[80%]  transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
+        <CarouselPrevious className="absolute lg:left-8 left-5 lg:top-1/2 md:top-[50%] top-[80%]  transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
           &#9664;
         </CarouselPrevious>
-        <CarouselNext className="absolute right-8 lg:top-1/2  md:top-[50%] top-[80%]  transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
+        <CarouselNext className="absolute lg:right-8 right-5 lg:top-1/2  md:top-[50%] top-[80%]  transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
           &#9654;
         </CarouselNext>
       </Carousel>

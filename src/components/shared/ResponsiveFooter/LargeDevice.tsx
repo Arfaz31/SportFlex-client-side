@@ -12,7 +12,7 @@ import card4 from "@/assets/icon/card-4.png";
 import card5 from "@/assets/icon/card-5.png";
 const LargeDevice = () => {
   return (
-    <div>
+    <div className="">
       <div className="py-16 lg:px-10 xl:px-0 lg:block hidden">
         <div className="grid grid-cols-12 gap-12">
           <div className="col-span-4">

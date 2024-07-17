@@ -129,7 +129,7 @@ const MobileNav = () => {
         <div className=" ">
           <Link className="flex items-center gap-1 " to="/">
             <img className=" w-[22px] md:w-[30px]" src={logo} alt="logo" />
-            <span className=" text-xl md:text-2xl font-bold">
+            <span className=" text-2xl md:text-2xl lg:text-3xl font-bold">
               SPORT<span className="text-[#00cde5]">FLEX</span>
             </span>
           </Link>

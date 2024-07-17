@@ -5,7 +5,8 @@ import SmallDevice from "./ResponsiveFooter/SmallDevice";
 
 const Footer = () => {
   return (
-    <div className="bg-[#0c0c0c] mt-48">
+    <div className="bg-green-700">
+      {/* #0c0c0c */}
       <Container>
         <div>
           <div className="hidden md:block lg:block">

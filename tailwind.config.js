@@ -83,6 +83,15 @@ module.exports = {
         zoomINToOut: "zoomOut 1s  ease-in-out",
         zoomOutToIn: "zoomOutToIn 5s ease-in-out infinite",
       },
+      // backgroundImage: {
+      //   "custom-gradient": "linear-gradient(90deg, #00cde5 0%, #1dd1bf 100%)",
+      // },
+      // textColor: {
+      //   "custom-gradient": "linear-gradient(90deg, #00cde5 0%, #1aa5b4 100%)",
+      // },
+      // borderColor: {
+      //   "custom-gradient": "linear-gradient(90deg, #00cde5 0%, #1aa5b4 100%)",
+      // },
     },
   },
   plugins: [require("tailwindcss-animate")],
