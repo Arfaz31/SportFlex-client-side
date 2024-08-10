@@ -15,7 +15,8 @@ const XLPolicy = () => {
             <div>
               <p className="xl:text-xl text-lg font-bold">FREE SHIPPING</p>
               <p className="xl:w-60 w-52 text-sm pt-2 text-gray-600">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Enjoy free shipping on all orders. Discover the best deals
+                today.
               </p>
             </div>
           </div>
@@ -31,7 +32,7 @@ const XLPolicy = () => {
             <div>
               <p className="xl:text-xl text-lg font-bold">24/7 SUPPORT</p>
               <p className="xl:w-60 w-52 text-sm pt-2 text-gray-600">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Get help anytime you need it. We're always here for you.
               </p>
             </div>
           </div>
@@ -47,7 +48,8 @@ const XLPolicy = () => {
             <div>
               <p className="xl:text-xl text-lg font-bold">30d FREE RETURN</p>
               <p className="xl:w-60 w-52 text-sm pt-2 text-gray-600">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Return items hassle-free within 30 days. Shop with confidence
+                today
               </p>
             </div>
           </div>

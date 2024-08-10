@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 const DiscountCard = () => {
   return (
-    <Container className="mb-24">
+    <Container className="mb-28">
       <div className="grid grid-cols-12 lg:gap-5 gap-4">
         <div className="md:col-span-6 col-span-12">
           <div className="relative overflow-hidden group w-full xl:h-[427px] lg:[350px]">
@@ -24,7 +24,7 @@ const DiscountCard = () => {
               <h1 className="xl:text-4xl lg:text-3xl xl text-white font-bold lg:max-w-[10ch] max-w-[15ch] xl:pb-0 md:pb-4 pb-2 ">
                 WOMEN'S GYM GEAR
               </h1>
-              <Button className="bg-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
+              <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
                 SHOP NOW
               </Button>
             </div>
@@ -48,7 +48,7 @@ const DiscountCard = () => {
               <h1 className="xl:text-4xl lg:text-3xl xl text-white font-bold xl:max-w-[12ch] lg:max-w-[12ch] max-w-[15ch] xl:pb-0 md:pb-4 pb-2 ">
                 UNISEX SPORT'S SHOES
               </h1>
-              <Button className="bg-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
+              <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
                 SHOP NOW
               </Button>
             </div>

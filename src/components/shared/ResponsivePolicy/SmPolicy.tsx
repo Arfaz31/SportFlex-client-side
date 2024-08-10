@@ -18,19 +18,21 @@ const SmPolicy = () => {
       id: 1,
       icon: (className: string) => <Truck className={className} />,
       title: "FREE SHIPPING",
-      offer: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      offer:
+        "Enjoy free shipping on all orders. Discover the best deals today.",
     },
     {
       id: 2,
       icon: (className: string) => <Phone className={className} />,
       title: "24/7 SUPPORT",
-      offer: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      offer: "Get help anytime you need it. We're always here for you .",
     },
     {
       id: 3,
       icon: (className: string) => <CornerUpLeft className={className} />,
       title: "30d FREE RETURN",
-      offer: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      offer:
+        "Return items hassle-free within 30 days. Shop with confidence today",
     },
   ];
 

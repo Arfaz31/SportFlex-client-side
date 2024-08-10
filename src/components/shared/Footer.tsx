@@ -1,24 +1,24 @@
 import Container from "./Container";
-import LargeDevice from "./ResponsiveFooter/LargeDevice";
-import MediumDevice from "./ResponsiveFooter/MediumDevice";
-import SmallDevice from "./ResponsiveFooter/SmallDevice";
+import LgFooter from "./ResponsiveFooter/LgFooter";
+import MdFooter from "./ResponsiveFooter/MdFooter";
+import SmFooter from "./ResponsiveFooter/SmFooter";
 
 const Footer = () => {
   return (
-    <div className="bg-green-700">
+    <div className="bg-[#0c0c0c] xl:translate-y-12 translate-y-[76px]">
       {/* #0c0c0c */}
       <Container>
         <div>
           <div className="hidden md:block lg:block">
             {/* for lg to xl device */}
-            <LargeDevice />
+            <LgFooter />
             {/* for medium device */}
-            <MediumDevice />
+            <MdFooter />
           </div>
 
           <div className="block md:hidden lg:hidden">
             {/* for small device */}
-            <SmallDevice />
+            <SmFooter />
           </div>
         </div>
       </Container>

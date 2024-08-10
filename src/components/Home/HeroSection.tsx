@@ -64,10 +64,10 @@ const HeroSection = () => {
                     <p className="lg:text-2xl text-sm font-bold text-[#00cde5] ">
                       {slider.offer}
                     </p>
-                    <h1 className="text-white xl:text-[40px] lg:text-3xl text-xl font-bold  lg:tracking-wide lg:leading-normal max-w-[15ch] lg:pb-6 pb-3">
+                    <h1 className="text-white xl:text-[48px] lg:text-3xl text-xl font-bold  lg:tracking-wide lg:leading-normal max-w-[15ch] lg:pb-6 pb-3">
                       {slider.title}
                     </h1>
-                    <Button className="bg-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
+                    <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
                       SHOP NOW
                     </Button>
                   </Container>
