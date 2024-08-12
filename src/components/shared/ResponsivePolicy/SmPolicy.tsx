@@ -47,10 +47,10 @@ const SmPolicy = () => {
         <CarouselContent>
           {sliderData.map((item) => (
             <CarouselItem key={item.id} className="  h-[220px]">
-              <Card className="border-0 h-full w-[450px]  bg-[#f5f5f5] rounded-none">
-                <CardContent className="relative  pt-[70px]  overflow-hidden">
+              <Card className="border-0 h-full w-[450px] mx-auto bg-[#f5f5f5] rounded-none ">
+                <CardContent className="relative  p-0  overflow-hidden">
                   <div className="grid grid-cols-12 ">
-                    <div className="col-span-full flex items-center justify-center gap-4">
+                    <div className="col-span-full flex items-center justify-center gap-3 sm:pr-6 pr-20  pt-[70px] ">
                       <div className="border-2 border-[#00cde5] rounded-full w-20 h-20 flex items-center justify-center overflow-hidden relative group">
                         <div className="absolute inset-0 bg-[#00cde5] rounded-full transform scale-0 transition-transform duration-500 ease-in-out group-hover:scale-100"></div>
                         <div className="relative group-hover:scale-110 transition-transform duration-500 ease-in-out">

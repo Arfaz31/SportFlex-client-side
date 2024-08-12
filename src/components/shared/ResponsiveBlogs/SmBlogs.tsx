@@ -54,7 +54,7 @@ const SmBlogs = () => {
                 src={blog3}
                 alt=""
               />
-              <div className="bg-[#10798b] text-white font-semibold flex w-[235px] text-base h-10 divide-x-2 divide-gray-400 space-x-4 pl-2 absolute  bottom-[155px]">
+              <div className="bg-[#10798b] text-white font-semibold flex w-[235px] text-base h-10 divide-x-2 divide-gray-400 space-x-4 pl-2 absolute  top-[260px]">
                 <p className="pt-2">26 JULY 2024</p>
                 <span className="pl-3 pt-2">
                   <MessageCircleMore />

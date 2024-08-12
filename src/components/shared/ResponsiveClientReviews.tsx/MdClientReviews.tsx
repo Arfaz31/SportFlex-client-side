@@ -59,7 +59,7 @@ const MdClientReviews = () => {
   ];
 
   return (
-    <div className=" mb-28 relative">
+    <div className=" mt-20 relative">
       <img
         className="w-full h-[560px] object-cover object-center"
         src={banner}
@@ -90,12 +90,15 @@ const MdClientReviews = () => {
           >
             <CarouselContent>
               {ReviewData.map((item) => (
-                <CarouselItem key={item.id} className="  h-[210px] ">
-                  <Card className="border-0 h-full md:w-[500px] w-[380px] bg-[#f5f5f5] rounded-none mx-auto ">
+                <CarouselItem
+                  key={item.id}
+                  className="  md:h-[220px] sm:h-[230px] h-[265px] "
+                >
+                  <Card className="border-0 h-full md:w-[500px] sm:w-[380px] w-[350px] bg-[#f5f5f5] rounded-none mx-auto ">
                     <CardContent className="relative overflow-hidden p-0">
                       <div className="grid grid-cols-12 ">
                         <div className="col-span-full flex items-center justify-center">
-                          <div className="flex bg-white shadow-lg rounded-lg h-[200px] w-full justify-center items-center px-4">
+                          <div className="flex bg-white shadow-lg rounded-lg sm:h-[220px] h-[265px] w-full justify-center items-center px-4">
                             <div>
                               <div className="border-2 border-[#00cde5] rounded-full w-24 h-24 flex items-center justify-center overflow-hidden relative group">
                                 <div className="relative group-hover:scale-110 transition-transform duration-500 ease-in-out">

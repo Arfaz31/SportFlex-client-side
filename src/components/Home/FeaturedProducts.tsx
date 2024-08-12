@@ -153,10 +153,10 @@ const FeaturedProducts = () => {
         <h1 className="xl:text-4xl lg:text-3xl text-2xl font-bold text-center mb-16">
           FEATURED PRODUCTS
         </h1>
-        <div className="grid xl:grid-cols-5 xl:gap-9 lg:grid-cols-4 lg:gap-5 md:grid-cols-3 md:gap-5 grid-cols-2 gap-4 xl:px-0 px-2  ">
+        <div className="grid xl:grid-cols-5 xl:gap-9 lg:grid-cols-4 lg:gap-5 md:grid-cols-3 md:gap-5 grid-cols-2 gap-3 xl:px-0 px-2  ">
           {featuredData.map((item) => (
             <div
-              className="col-span-1 flex flex-col md:h-[360px] h-[290px] relative group  bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out  bg-opacity-50  w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+              className="col-span-1 flex flex-col md:h-[360px] h-[305px] relative group  bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out  bg-opacity-50  w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
               key={item.id}
             >
               <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">

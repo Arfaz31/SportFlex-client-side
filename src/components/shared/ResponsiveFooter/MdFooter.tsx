@@ -13,7 +13,7 @@ import card5 from "@/assets/icon/card-5.png";
 const MdFooter = () => {
   return (
     <div>
-      <div className="py-16 px-10  lg:hidden md:block">
+      <div className="py-16 px-4  lg:hidden md:block">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-6">
             <div className="flex flex-col gap-16">

@@ -14,7 +14,7 @@ import card5 from "@/assets/icon/card-5.png";
 const SmFooter = () => {
   return (
     <div>
-      <div className="py-16 px-10 ">
+      <div className="py-16 px-3 ">
         <div className="flex flex-col gap-12">
           <div className="flex flex-col space-y-5">
             <div>

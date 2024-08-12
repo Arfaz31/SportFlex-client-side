@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 
 const XlBlogs = () => {
   return (
-    <div className="mb-10">
+    <div className="mb-10 xl:mx-0 mx-3">
       <Container>
         <div className="flex  justify-center relative ">
           <h1 className="xl:text-4xl lg:text-3xl text-2xl text-center font-bold mb-10">
             LATEST ON BLOGS
           </h1>
-          <div className="relative xl:left-[370px] lg:left-[270px] md:left-[195px] md:block hidden">
+          <div className="relative xl:left-[385px] lg:left-[305px] md:left-[200px] md:block hidden">
             <Link to={`/blog`}>
               <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  lg:text-lg  text-sm text-white  h-[40px] w-[95px] lg:w-[120px] lg:h-[50px]">
                 View More
@@ -22,8 +22,8 @@ const XlBlogs = () => {
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-12 xl:mr-12 lg:mr-7 mr-0">
-          <div className="lg:col-span-8 col-span-7 xl:w-[750px] lg:w-[600px] w-[400px] lg:mx-auto mx-0">
+        <div className="grid grid-cols-12  ">
+          <div className="lg:col-span-8 col-span-7 xl:w-[750px] lg:w-[600px] w-[400px]  ">
             <div className="relative overflow-hidden group w-full lg:h-[700px] h-[675px]">
               <img
                 className="lg:h-[700px] h-[675px]  group-hover:scale-110 transition-transform duration-500 object-cover object-center"
@@ -57,9 +57,9 @@ const XlBlogs = () => {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-4 col-span-5">
+          <div className="lg:col-span-4 col-span-5 ">
             <div className="grid grid-rows-2 gap-10 ">
-              <div className="relative w-full lg:h-[400px] h-[400px]">
+              <div className="relative w-full lg:h-[400px] h-[400px] ">
                 <div className="  group xl:h-[240px] h-[210px] overflow-hidden">
                   <img
                     className="w-[428px] xl:h-[240px] h-[210px] group-hover:scale-110 transition-transform duration-500 object-cover object-center"

@@ -13,7 +13,7 @@ import card5 from "@/assets/icon/card-5.png";
 const LgFooter = () => {
   return (
     <div className="">
-      <div className="py-16 lg:px-10 xl:px-0 lg:block hidden">
+      <div className="py-16 lg:px-4 xl:px-0 lg:block hidden">
         <div className="grid grid-cols-12 gap-12">
           <div className="col-span-4">
             <div className="flex flex-col space-y-5">

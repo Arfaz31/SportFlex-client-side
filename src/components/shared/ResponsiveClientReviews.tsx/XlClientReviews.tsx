@@ -58,13 +58,13 @@ const XlClientReviews = () => {
   ];
 
   return (
-    <div className=" mb-28 relative">
+    <div className=" mt-24 relative">
       <img
         className="w-full h-[560px] object-cover object-center"
         src={banner}
         alt=""
       />
-      <div className="bg-black absolute top-0  h-[560px] w-full bg-opacity-45"></div>
+      <div className="bg-[#0a5e6d] absolute top-0  h-[560px] w-full bg-opacity-85"></div>
       <div className="absolute top-16 text-center right-4 w-full">
         <h1 className="text-white font-bold xl:text-4xl lg:text-3xl tracking-wider leading-tight">
           TOP <br />

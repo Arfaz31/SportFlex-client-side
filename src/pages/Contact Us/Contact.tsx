@@ -19,7 +19,7 @@ const Contact = () => {
           alt=""
         />
         <div className="bg-black opacity-45 md:h-[500px] h-[400px] w-full absolute top-0 z-1"></div>
-        <div className="flex items-center gap-3 absolute md:top-64 top-48 xl:left-[40%] lg:left-[32%] md:left-[30%] left-[15%]">
+        <div className="flex items-center gap-3 absolute md:top-64 top-48 xl:left-[40%] lg:left-[32%] md:left-[30%] sm:left-[15%] left-[8%]">
           <span className="bg-[#00cde5] w-16 h-1"></span>
           <h1 className="lg:text-4xl text-2xl text-white font-bold ">
             CONTACT US
@@ -97,14 +97,14 @@ const Contact = () => {
             alt=""
           />
           <div className="bg-black opacity-50 absolute h-[450px] w-full top-0 lg:hidden block rounded-lg"></div>
-          <div className="absolute lg:top-32 md:top-28 top-32 lg:left-[60%] md:left-[40%] left-[5%] space-y-2">
+          <div className="absolute lg:top-32 md:top-28 top-32 lg:left-[55%] md:left-[50%]  left-0 md:px-0 px-2 space-y-2 lg:w-[45%] md:w-[45%] w-full mx-auto">
             <p className=" xl:text-lg text-base   text-white lg:text-start text-center">
               Want to offer regularly ?
             </p>
             <p className="font-bold xl:text-3xl lg:text-2xl text-xl text-white tracking-wide lg:text-start text-center">
               Subscribe Our Newsletter <br /> for Get Daily Update
             </p>
-            <div className="flex w-full max-w-sm items-center xl:pt-[18px] pt-[10px]">
+            <div className="flex w-full max-w-sm items-center xl:pt-[18px] pt-[10px] md:mx-0 mx-auto">
               <input
                 type="email"
                 placeholder="Enter Your Email"

@@ -37,9 +37,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import XlClientReviews from "@/components/shared/ResponsiveClientReviews.tsx/XlClientReviews";
+import MdClientReviews from "@/components/shared/ResponsiveClientReviews.tsx/MdClientReviews";
 const About = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true })
   );
   const teamMemberData = [
     {
@@ -115,13 +117,13 @@ const About = () => {
           <span className="bg-[#00cde5] w-16 h-1"></span>
         </div>
       </div>
-      <Container className="lg:my-24 my-20 xl:px-0 px-6">
+      <Container className="md:mb-12 mb-0 lg:mt-24 mt-20 xl:px-0 px-6">
         <div className=" flex lg:flex-row flex-col xl:gap-24 lg:gap-20 gap-12 ">
-          <div className=" relative lg:w-full md:w-[720px] w-[400px]">
-            <div className="bg-gradient-to-b from-[#00cde5] to-[#10798b] xl:h-[550px] xl:w-[500px] lg:h-[530px] lg:w-[420px] md:w-[370px] md:h-[370px] w-[320px] h-[320px] rounded-r-full rounded-b-full lg:mx-0 mx-auto"></div>
+          <div className=" relative lg:w-full md:w-[720px] sm:w-[400px] w-full mx-auto">
+            <div className="bg-gradient-to-b from-[#00cde5] to-[#10798b] xl:h-[550px] xl:w-[500px] lg:h-[530px] lg:w-[420px] md:w-[450px] md:h-[450px] sm:w-[320px] sm:h-[320px] w-[280px] h-[280px] rounded-r-full rounded-b-full lg:mx-0 mx-auto"></div>
 
             <img
-              className="xl:h-[550px] xl:w-[500px] lg:h-[530px] lg:w-[420px] md:w-[370px] md:h-[370px] w-[320px] h-[320px] object-cover rounded-r-full rounded-b-full absolute top-0 lg:left-8 md:left-36 left-14"
+              className="xl:h-[550px] xl:w-[500px] lg:h-[530px] lg:w-[420px] md:w-[450px] md:h-[450px] sm:w-[320px] sm:h-[320px] w-[280px] h-[280px] object-cover rounded-r-full rounded-b-full absolute top-0 lg:left-8 md:left-[170px]  sm:left-16 left-12"
               src={aboutUs}
               alt=""
             />
@@ -134,9 +136,8 @@ const About = () => {
                 WELCOME TO SPORTFLEX
               </p>
             </div>
-            <p className="xl:text-4xl lg:text-3xl text-2xl font-bold leading-none">
-              We cover all the sports <br />
-              goods for you
+            <p className="xl:text-4xl lg:text-3xl text-2xl font-bold leading-none lg:w-[450px] w-full">
+              We cover all the sports goods for you
             </p>
             <p className="md:text-base text-sm text-[#82828a] xl:pt-4 pt-3">
               SportFlex is your trusted sports gear destination in Banani,
@@ -279,12 +280,12 @@ const About = () => {
                         <CardContent className="flex flex-col relative aspect-square items-center justify-center p-6">
                           <div>
                             {member.image(
-                              "xl:w-[320px] xl:h-[362px] lg:w-[250px] lg:h-[284px] md:w-[305px] md:h-[345px] w-[325px] h-[390px]"
+                              "xl:w-[320px] xl:h-[362px] lg:w-[250px] lg:h-[284px] md:w-[305px] md:h-[345px] sm:w-[325px] sm:h-[385px] w-[272px] h-[330px]"
                             )}
                           </div>
 
-                          <div className=" bg-white shadow-xl border-r-2  xl:w-[320px] xl:h-[120px] lg:w-[250px] lg:h-[110px] md:w-[305px] md:h-[120px] w-[325px] h-[120px] border-[#00cde5]  border-b-2 ">
-                            <div className="absolute xl:top-[365px] lg:top-[285px] md:top-[345px] top-[390px] left-1/2 transform -translate-x-1/2 flex gap-5 items-center justify-center">
+                          <div className=" bg-white shadow-xl border-r-2  xl:w-[320px] xl:h-[120px] lg:w-[250px] lg:h-[110px] md:w-[305px] md:h-[120px] sm:w-[325px] sm:h-[120px]  w-[272px] h-[110px] border-[#00cde5]  border-b-2 relative">
+                            <div className="absolute xl:bottom-[100px] lg:bottom-[90px] md:bottom-[100px] sm:bottom-[100px] bottom-[90px]  left-1/2 transform -translate-x-1/2 flex gap-5 items-center justify-center ">
                               <span className="inline-block bg-[#00cde5] rounded-full p-2 cursor-pointer hover:bg-[#10798b]">
                                 <FaFacebookF className="text-white w-6 h-6" />
                               </span>
@@ -322,7 +323,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="flex lg:flex-row flex-col xl:gap-24 lg:gap-20 gap-12 mt-24">
+        <div className="flex lg:flex-row flex-col xl:gap-24 lg:gap-6 gap-12 mt-24">
           <div>
             <div className="space-y-5">
               <div className="flex gap-3 items-center">
@@ -331,11 +332,10 @@ const About = () => {
                   Why Choose Us
                 </p>
               </div>
-              <p className="xl:text-4xl lg:text-3xl text-2xl font-bold leading-none">
-                We inspire & help our <br />
-                customers
+              <p className="xl:text-4xl lg:text-3xl text-2xl font-bold leading-none lg:w-[450px] w-full">
+                We inspire & help our customers
               </p>
-              <div className="flex items-center justify-center gap-4 py-3">
+              <div className="flex items-center  gap-4 py-3">
                 <span className="inline-block bg-gradient-to-t from-[#00cde5] to-[#10798b] rounded-lg p-2 ">
                   <FaTruckFast className="text-white w-14 h-14" />
                 </span>
@@ -347,7 +347,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-4 pb-3">
+              <div className="flex items-center  gap-4 pb-3">
                 <span className="inline-block bg-gradient-to-t from-[#00cde5] to-[#10798b] rounded-lg p-2 ">
                   <FaShieldHalved className="text-white w-14 h-14" />
                 </span>
@@ -359,7 +359,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-4">
+              <div className="flex items-center  gap-4">
                 <span className="inline-block bg-gradient-to-t from-[#00cde5] to-[#10798b] rounded-lg p-2 ">
                   <FaPeopleGroup className="text-white w-14 h-14" />
                 </span>
@@ -374,12 +374,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div>
-            <div className=" relative lg:w-full md:w-[720px] w-[400px] ">
-              <div className="bg-gradient-to-b from-[#10798b] to-[#00cde5] xl:h-[550px] xl:w-[585px] lg:h-[480px] lg:w-[420px] md:w-[380px] md:h-[380px] w-[320px] h-[320px] rounded-l-full rounded-b-full lg:mx-0 mx-auto"></div>
+          <div className="xl:mr-8 lg:mr-10 mr-0">
+            <div className="relative lg:w-full md:w-[730px] sm:w-[400px] w-full mx-auto">
+              <div className="bg-gradient-to-b from-[#10798b] to-[#00cde5] xl:h-[550px] xl:w-[585px] lg:h-[440px] lg:w-[420px] md:w-[450px] md:h-[450px] sm:w-[320px] sm:h-[320px] w-[280px] h-[280px] rounded-l-full rounded-b-full lg:mx-0 mx-auto"></div>
 
               <img
-                className="xl:h-[550px] xl:w-[585px] lg:h-[480px] lg:w-[420px] md:w-[380px] md:h-[380px] w-[320px] h-[320px] object-cover rounded-l-full rounded-b-full absolute top-0 lg:right-8 md:right-36 "
+                className="xl:h-[550px] xl:w-[585px] lg:h-[440px] lg:w-[430px] md:w-[450px] md:h-[450px] sm:w-[320px] sm:h-[320px] w-[280px] h-[280px] object-cover rounded-l-full rounded-b-full absolute top-0 lg:left-8 md:left-28  sm:left-3 -left-1"
                 src={us}
                 alt=""
               />
@@ -387,6 +387,14 @@ const About = () => {
           </div>
         </div>
       </Container>
+      <div>
+        <div className="lg:block hidden">
+          <XlClientReviews />
+        </div>
+        <div className="lg:hidden block">
+          <MdClientReviews />
+        </div>
+      </div>
     </div>
   );
 };
