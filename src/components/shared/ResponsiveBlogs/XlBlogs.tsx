@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const XlBlogs = () => {
   return (
-    <div className="mb-10 xl:mx-0 mx-3">
+    <div className="mt-28 mb-10 xl:mx-0 mx-1">
       <Container>
         <div className="flex  justify-center relative ">
           <h1 className="xl:text-4xl lg:text-3xl text-2xl text-center font-bold mb-10">

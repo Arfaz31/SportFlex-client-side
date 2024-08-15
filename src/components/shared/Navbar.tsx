@@ -22,16 +22,16 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <div
         className={`${
           isScrolled
-            ? "bg-[#000000] fixed top-0 left-0 xl:-translate-y-12 h-36 xl:pt-14 pt-[92px] -translate-y-[76px]"
-            : "bg-transparent absolute top-0 left-0 xl:py-3 py-6 px-3 xl-px-0"
-        } w-full z-10 transition-all transform duration-500  ease-in-out`}
+            ? "bg-[#000000] fixed top-0 left-0 xl:-translate-y-12 h-36 xl:pt-14 pt-[92px] -translate-y-[76px] "
+            : "bg-transparent absolute top-0 left-0 xl:py-3 py-6 px-3 xl-px-0 "
+        }w-full z-10 transition-all transform duration-500  ease-in-out`}
       >
         <Container>
-          <div className=" shadow-lg  ">
+          <div className="   ">
             <div className=" ">
               {/* xl-device Navbar */}
               <XLDeviceNav />

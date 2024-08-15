@@ -8,7 +8,7 @@ import youtube from "@/assets/icon/tube.png";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import banner from "@/assets/newsBanner.jpg";
+import NewsletterBannner from "@/components/shared/NewsletterBannner";
 const Contact = () => {
   return (
     <div>
@@ -70,7 +70,7 @@ const Contact = () => {
               <Input type="name" placeholder="Your Last Name" />
             </div>
             <div className="flex gap-3 pb-6">
-              <Input type="number" placeholder="Phone Number" />
+              <Input type="text" placeholder="Phone Number" />
               <Input type="email" placeholder="Email" />
             </div>
             <Textarea placeholder="Type your message here." />
@@ -90,34 +90,8 @@ const Contact = () => {
             </iframe>
           </div>
         </div>
-        <div className="relative mb-12">
-          <img
-            className="object-cover w-full xl:h-[500px] h-[450px] rounded-lg"
-            src={banner}
-            alt=""
-          />
-          <div className="bg-black opacity-50 absolute h-[450px] w-full top-0 lg:hidden block rounded-lg"></div>
-          <div className="absolute lg:top-32 md:top-28 top-32 lg:left-[55%] md:left-[50%]  left-0 md:px-0 px-2 space-y-2 lg:w-[45%] md:w-[45%] w-full mx-auto">
-            <p className=" xl:text-lg text-base   text-white lg:text-start text-center">
-              Want to offer regularly ?
-            </p>
-            <p className="font-bold xl:text-3xl lg:text-2xl text-xl text-white tracking-wide lg:text-start text-center">
-              Subscribe Our Newsletter <br /> for Get Daily Update
-            </p>
-            <div className="flex w-full max-w-sm items-center xl:pt-[18px] pt-[10px] md:mx-0 mx-auto">
-              <input
-                type="email"
-                placeholder="Enter Your Email"
-                className="p-2 w-full border border-[#222] rounded-l focus:outline-none  focus:border-[#1abfdc]"
-              />
-              <button
-                className="bg-[#10798b] px-4 py-2 h-full text-white rounded-r border border-[#222] -ml-px"
-                type="submit"
-              >
-                Subscribe
-              </button>
-            </div>
-          </div>
+        <div>
+          <NewsletterBannner />
         </div>
       </Container>
     </div>

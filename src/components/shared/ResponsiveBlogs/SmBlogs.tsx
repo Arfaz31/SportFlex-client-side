@@ -7,7 +7,7 @@ import { Heart, MessageCircleMore } from "lucide-react";
 import { Link } from "react-router-dom";
 const SmBlogs = () => {
   return (
-    <div className="mb-12">
+    <div className="mt-28 mb-12">
       <Container>
         <h1 className="xl:text-4xl lg:text-3xl text-2xl text-center font-bold mb-10">
           LATEST ON BLOGS

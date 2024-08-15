@@ -86,10 +86,10 @@ const MdNewProduct = () => {
               </div>
             </TabsList>
             <TabsContent value="shoes">
-              <div className="grid  md:grid-cols-3 md:gap-5 grid-cols-2 gap-4 xl:px-0 px-2  ">
+              <div className="grid  md:grid-cols-3 md:gap-5 grid-cols-2 gap-4 xl:px-0 sm:px-2 px-0 ">
                 {shoesData.map((item) => (
                   <div
-                    className="col-span-1 flex flex-col md:h-[360px] sm:h-[300px] h-[310px] relative group  bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out  bg-opacity-50  w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                    className="col-span-1 flex flex-col md:h-[360px] sm:h-[300px] h-[330px] relative group  bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out  bg-opacity-50  w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
                     key={item.id}
                   >
                     <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
@@ -126,11 +126,6 @@ const MdNewProduct = () => {
                           color="orange"
                           fill="orange"
                         />
-                        <Star
-                          className="md:size-5 size-[18px]"
-                          color="orange"
-                          fill="orange"
-                        />
                       </div>
                       <p className="text-center md:text-lg text-sm ">
                         {item.productName}
@@ -142,12 +137,12 @@ const MdNewProduct = () => {
                         $ {item.price}
                       </p>
                       <div className="hidden group-hover:block transition-transform duration-500 ease-in-out ">
-                        <div className="flex md:justify-between  justify-center items-center lg:space-x-1 space-x-1 ">
+                        <div className="flex sm:justify-around  justify-center items-center lg:space-x-1 space-x-1 ">
                           <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all  duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
                             <Heart className=" w-8  h-8" />
                           </div>
                           <Link to={`/singleProduct/${item.id}`}>
-                            <Button className="bg-[#10798b] text-xs md:text-sm text-white  h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
+                            <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white  h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
                               View Details
                             </Button>
                           </Link>

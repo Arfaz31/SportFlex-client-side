@@ -106,36 +106,14 @@ const XlNewProducts = () => {
                         </div>
                         <div className="px-3 space-y-2">
                           <div className="flex items-center justify-center">
-                            <Star
-                              className="md:size-5 size-[18px]"
-                              color="orange"
-                              fill="orange"
-                            />
-                            <Star
-                              className="md:size-5 size-[18px]"
-                              color="orange"
-                              fill="orange"
-                            />
-                            <Star
-                              className="md:size-5 size-[18px]"
-                              color="orange"
-                              fill="orange"
-                            />
-                            <Star
-                              className="md:size-5 size-[18px]"
-                              color="orange"
-                              fill="orange"
-                            />
-                            <Star
-                              className="md:size-5 size-[18px]"
-                              color="orange"
-                              fill="orange"
-                            />
-                            <Star
-                              className="md:size-5 size-[18px]"
-                              color="orange"
-                              fill="orange"
-                            />
+                            {[...Array(5)].map((_, i) => (
+                              <Star
+                                key={i}
+                                className="md:size-5 size-[18px]"
+                                color="orange"
+                                fill="orange"
+                              />
+                            ))}
                           </div>
                           <p className="text-center md:text-lg text-sm ">
                             {item.productName}
@@ -152,7 +130,7 @@ const XlNewProducts = () => {
                                 <Heart className=" w-8  h-8" />
                               </div>
                               <Link to={`/singleProduct/${item.id}`}>
-                                <Button className="bg-[#10798b] text-xs md:text-sm text-white  h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
+                                <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white  h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
                                   View Details
                                 </Button>
                               </Link>
@@ -185,7 +163,7 @@ const XlNewProducts = () => {
                         SAVE <br />
                         UP TO
                       </p>
-                      <span className=" bg-[#1abfdc] xl:text-xl text-lg  rounded-full xl:w-16 xl:h-16 w-14 h-14  flex items-center justify-center animate-bounce text-white font-semibold">
+                      <span className=" bg-gradient-to-r from-[#00cde5] to-[#10798b] xl:text-xl text-lg  rounded-full xl:w-16 xl:h-16 w-14 h-14  flex items-center justify-center animate-bounce text-white font-semibold">
                         50%
                       </span>
                     </div>
@@ -253,7 +231,7 @@ const XlNewProducts = () => {
                                 <Heart className=" w-8  h-8" />
                               </div>
                               <Link to={`/singleProduct/${item.id}`}>
-                                <Button className="bg-[#10798b] text-xs md:text-sm text-white  h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
+                                <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white  h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
                                   View Details
                                 </Button>
                               </Link>

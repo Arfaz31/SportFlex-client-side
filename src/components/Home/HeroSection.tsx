@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import sliderImage1 from "./../../assets/slideImage1.jpg";
+import sliderImage1 from "./../../assets/slideImage6.jpg";
 import sliderImage2 from "./../../assets/slideImage2.jpg";
 import sliderImage4 from "./../../assets/slideImage4.png";
 import { Button } from "../ui/button";
@@ -23,7 +23,7 @@ const HeroSection = () => {
     {
       id: 1,
       image: sliderImage1,
-      title: "TOP-TIER BOXING EQUIPMENTS",
+      title: "TOP-TIER GYM EQUIPMENTS",
       offer: "Save Up To 40%",
     },
     {
@@ -56,15 +56,15 @@ const HeroSection = () => {
                   <div className="flex flex-shrink-0 items-center justify-center gap-0 p-0 m-0 animate-zoomOutToIn delay-200">
                     <img
                       src={slider?.image}
-                      className=" object-cover w-full xl:h-full lg:h-[600px] md:h-[450px]  h-[400px] size-fit transition-transform duration-500 "
+                      className=" object-cover object-center w-full xl:h-full lg:h-[600px] md:h-[450px]  h-[400px] size-fit transition-transform duration-500 "
                       alt=""
                     />
                   </div>
-                  <Container className="w-full absolute xl:top-[270px]  lg:top-[160px] md:top-[170px]  top-[120px] right-0  lg:left-28 md:left-36 left-6 xl:left-0 lg:space-y-3 space-y-2 ">
+                  <Container className="w-full absolute xl:top-[270px]  lg:top-[160px] md:top-[160px]  top-[120px] right-0   md:left-32 left-6 xl:left-0 lg:space-y-3 space-y-2 ">
                     <p className="lg:text-2xl text-sm font-bold text-[#00cde5] ">
                       {slider.offer}
                     </p>
-                    <h1 className="text-white xl:text-[48px] lg:text-3xl text-xl font-bold  lg:tracking-wide lg:leading-normal max-w-[15ch] lg:pb-6 pb-3">
+                    <h1 className="text-white xl:text-[48px] lg:text-4xl md:text-3xl  text-2xl font-bold  lg:tracking-wide lg:leading-normal max-w-[15ch] lg:pb-6 pb-3">
                       {slider.title}
                     </h1>
                     <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">

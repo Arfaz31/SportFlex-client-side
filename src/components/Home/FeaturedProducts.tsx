@@ -153,7 +153,7 @@ const FeaturedProducts = () => {
         <h1 className="xl:text-4xl lg:text-3xl text-2xl font-bold text-center mb-16">
           FEATURED PRODUCTS
         </h1>
-        <div className="grid xl:grid-cols-5 xl:gap-9 lg:grid-cols-4 lg:gap-5 md:grid-cols-3 md:gap-5 grid-cols-2 gap-3 xl:px-0 px-2  ">
+        <div className="grid xl:grid-cols-5  lg:grid-cols-4 md:gap-6 md:grid-cols-3  grid-cols-2 gap-3 xl:px-0 sm:px-2 px-0  w-full">
           {featuredData.map((item) => (
             <div
               className="col-span-1 flex flex-col md:h-[360px] h-[305px] relative group  bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out  bg-opacity-50  w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
@@ -166,38 +166,16 @@ const FeaturedProducts = () => {
                   )}
                 </div>
               </div>
-              <div className="px-3 space-y-2">
+              <div className="px-0 space-y-2">
                 <div className="flex items-center justify-center">
-                  <Star
-                    className="md:size-5 size-[18px]"
-                    color="orange"
-                    fill="orange"
-                  />
-                  <Star
-                    className="md:size-5 size-[18px]"
-                    color="orange"
-                    fill="orange"
-                  />
-                  <Star
-                    className="md:size-5 size-[18px]"
-                    color="orange"
-                    fill="orange"
-                  />
-                  <Star
-                    className="md:size-5 size-[18px]"
-                    color="orange"
-                    fill="orange"
-                  />
-                  <Star
-                    className="md:size-5 size-[18px]"
-                    color="orange"
-                    fill="orange"
-                  />
-                  <Star
-                    className="md:size-5 size-[18px]"
-                    color="orange"
-                    fill="orange"
-                  />
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="md:size-5 size-[18px]"
+                      color="orange"
+                      fill="orange"
+                    />
+                  ))}
                 </div>
                 <p className="text-center md:text-lg text-sm ">
                   {item.productName}
@@ -209,7 +187,7 @@ const FeaturedProducts = () => {
                   $ {item.price}
                 </p>
                 <div className="hidden group-hover:block transition-transform duration-500 ease-in-out ">
-                  <div className="flex md:justify-between  justify-center items-center lg:space-x-1 space-x-1 ">
+                  <div className="flex sm:justify-around  justify-center items-center lg:space-x-1 space-x-1 ">
                     <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all  duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
                       <Heart className=" w-8  h-8" />
                     </div>

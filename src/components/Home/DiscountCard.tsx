@@ -8,9 +8,9 @@ const DiscountCard = () => {
     <Container className="mb-28">
       <div className="grid grid-cols-12 lg:gap-5 gap-4">
         <div className="md:col-span-6 col-span-12">
-          <div className="relative overflow-hidden group w-full xl:h-[427px] lg:[350px]">
+          <div className="relative overflow-hidden group w-full xl:h-[395px] lg:[350px]">
             <img
-              className=" group-hover:scale-110 transition-transform duration-500"
+              className=" group-hover:scale-110 transition-transform duration-500 w-full xl:h-[395px] lg:[350px]"
               src={gymGirl}
               alt=""
             />
@@ -32,9 +32,9 @@ const DiscountCard = () => {
         </div>
 
         <div className="md:col-span-6 col-span-12">
-          <div className="relative overflow-hidden group w-full xl:h-[427px] lg:[350px]">
+          <div className="relative overflow-hidden group w-full xl:h-[395px] lg:[350px]">
             <img
-              className=" group-hover:scale-110 transition-transform duration-500"
+              className=" group-hover:scale-110 transition-transform duration-500 w-full xl:h-[395px] lg:[350px]"
               src={shoe}
               alt=""
             />

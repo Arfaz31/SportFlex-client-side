@@ -12,7 +12,7 @@ const XLDeviceNav = () => {
   const Links = [
     { name: "HOME", link: "/" },
     { name: "PRODUCTS", link: "/products" },
-    { name: "DASHBOARD", link: "/dashboard" },
+    { name: "DASHBOARD", link: "/admin-dashboard" },
     { name: "BLOG", link: "/blog" },
     { name: "ABOUT", link: "/about" },
     { name: "CONTACT", link: "/contact" },
@@ -20,7 +20,7 @@ const XLDeviceNav = () => {
 
   return (
     <div className="xl:block hidden">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center ">
         <div>
           <Link className="flex items-center gap-2 " to="/">
             <img className=" w-[40px] " src={logo} alt="logo" />

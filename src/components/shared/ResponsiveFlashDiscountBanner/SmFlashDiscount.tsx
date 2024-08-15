@@ -35,7 +35,7 @@ const SmFlashDiscount = () => {
     <div className="h-[740px] bg-[#f5f5f5] relative">
       <div className="relative group overflow-hidden w-full h-[50%]">
         <img
-          className="group-hover:scale-110 transition-transform duration-500 h-full ease-in-out w-full"
+          className="group-hover:scale-110 transition-transform duration-500 h-full ease-in-out w-full object-cover object-center"
           src={bike}
           alt=""
         />

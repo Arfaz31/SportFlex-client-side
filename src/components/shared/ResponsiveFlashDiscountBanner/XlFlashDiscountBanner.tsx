@@ -2,7 +2,6 @@ import bike from "@/assets/discount/bike.jpg";
 import slider1 from "@/assets/discount/slider11.png";
 import slider2 from "@/assets/discount/slider2.png";
 import slider3 from "@/assets/discount/slider3.png";
-import { useCallback, useEffect, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,37 +9,19 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Button } from "@/components/ui/button";
 import Container from "../Container";
+import CountDown from "../CountDown";
 
 const XlFlashDiscountBanner = () => {
   const endDate = `2024-12-30T00:00:00`;
-  //   useCallback: This hook memoizes the function to prevent it from being recreated on every render. It only recalculates if the endDate changes.
-  const calculateTimeLeft = useCallback(() => {
-    const difference = +new Date(endDate) - +new Date();
-    return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-  }, [endDate]);
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    // setInterval is used to call calculateTimeLeft every second (1000 milliseconds).
-    return () => clearInterval(timer);
-  }, [calculateTimeLeft]);
+  const { days, hours, minutes, seconds } = CountDown(endDate);
 
   return (
     <Container>
       <div className="xl:h-[460px] h-[410px] bg-[#f5f5f5] relative">
-        <div className="grid grid-cols-12 ">
-          <div className="col-span-6 relative group overflow-hidden w-full h-full">
+        <div className="grid grid-cols-12 relative">
+          <div className="col-span-6  group overflow-hidden w-full h-full">
             <img
-              className="group-hover:scale-110 transition-transform duration-500 ease-in-out"
+              className="group-hover:scale-110 transition-transform duration-500 ease-in-out object-cover object-center"
               src={bike}
               alt=""
             />
@@ -98,34 +79,32 @@ const XlFlashDiscountBanner = () => {
             </Swiper>
           </div>
         </div>
-        <div className="bg-white z-[1] xl:h-[370px] lg:h-[280px] xl:w-[70px] w-[60px] absolute xl:top-4 top-3 xl:left-[47.5%] left-[47%] rounded-t-full rounded-b-full">
+        <div className="bg-white z-[1] xl:h-[340px] lg:h-[280px] xl:w-[70px] w-[60px] absolute xl:top-2 top-3 xl:left-[47.5%] left-[47%] rounded-t-full rounded-b-full">
           <div className="bg-[#10798b] pt-3 w-full xl:h-[50px] h-[45px] rounded-t-full">
             <div className="bg-white rounded-full w-[10px] h-[10px] mx-auto"></div>
             <hr className="bg-white mt-4" />
           </div>
 
-          <div className=" grid grid-cols-1 xl:gap-2 gap-1 pt-2 divide-y-2  items-center ">
+          <div className=" grid grid-cols-1 gap-1 pt-1 divide-y-2  items-center ">
             <div>
-              <p className="text-center font-bold xl:text-lg text-sm">
-                {timeLeft.days}
-              </p>
+              <p className="text-center font-bold xl:text-lg text-sm">{days}</p>
               <p className="text-center xl:text-base text-xs">Days</p>
             </div>
             <div className="pt-2">
               <p className="text-center font-bold xl:text-lg text-sm">
-                {timeLeft.hours}
+                {hours}
               </p>
               <p className="text-center xl:text-base text-xs">Hours</p>
             </div>
             <div className="pt-2">
               <p className="text-center font-bold xl:text-lg text-sm">
-                {timeLeft.minutes}
+                {minutes}
               </p>
               <p className="text-center xl:text-base text-xs">Min</p>
             </div>
             <div className="pt-2 pb-1">
               <p className="text-center font-bold xl:text-lg text-sm">
-                {timeLeft.seconds}
+                {seconds}
               </p>
               <p className="text-center xl:text-base text-xs">Secs</p>
             </div>

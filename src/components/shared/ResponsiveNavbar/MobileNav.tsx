@@ -29,7 +29,7 @@ const MobileNav = () => {
   const Links = [
     { name: "HOME", link: "/" },
     { name: "PRODUCTS", link: "/products" },
-    { name: "DASHBOARD", link: "/dashboard" },
+    { name: "DASHBOARD", link: "/admin-dashboard" },
     { name: "BLOG", link: "/blog" },
     { name: "ABOUT", link: "/about" },
     { name: "CONTACT", link: "/contact" },

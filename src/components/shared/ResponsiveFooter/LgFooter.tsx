@@ -10,7 +10,19 @@ import card2 from "@/assets/icon/card-1.png";
 import card3 from "@/assets/icon/card-3.png";
 import card4 from "@/assets/icon/card-4.png";
 import card5 from "@/assets/icon/card-5.png";
+import { useState } from "react";
+import { toast } from "sonner";
 const LgFooter = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = () => {
+    if (email) {
+      toast.success("Your email is subscribed");
+      setEmail("");
+    } else {
+      toast.error("Please enter a valid email");
+    }
+  };
   return (
     <div className="">
       <div className="py-16 lg:px-4 xl:px-0 lg:block hidden">
@@ -124,11 +136,14 @@ const LgFooter = () => {
                 <input
                   type="email"
                   placeholder="Enter Your Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="p-2 w-full border border-[#222] rounded-l focus:outline-none  focus:border-[#1abfdc]"
                 />
                 <button
                   className="bg-[#10798b] px-4 py-2 h-full text-white rounded-r border border-[#222] -ml-px"
                   type="submit"
+                  onClick={handleSubscribe}
                 >
                   Subscribe
                 </button>
