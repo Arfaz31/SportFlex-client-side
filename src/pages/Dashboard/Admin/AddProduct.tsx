@@ -1,34 +1,41 @@
+import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { useAddProductPostMutation } from "@/redux/features/product/productApi";
+import { TCatagory, TInputs } from "@/type/Type";
 import { useForm, SubmitHandler } from "react-hook-form";
-
-enum CategoryEnum {
-  Football = "Football",
-  Basketball = "Basketball",
-  Volleyball = "Volleyball",
-  Shoes = "Shoes",
-  Cricket = "Cricket",
-  Badminton = "Badminton",
-  Hockey = "Hockey",
-  Rugby = "Rugby",
-  Bike = "Bike",
-  Bag = "Bag",
-  WomenWear = "WomenWear",
-  MenWear = "MenWear",
-}
-
-interface Inputs {
-  productName: string;
-  image: string;
-  category: CategoryEnum;
-  price: string;
-  brand: string;
-  description: string;
-  stockQuantity: number;
-  availability: boolean;
-}
+import { toast } from "sonner";
 
 const AddProduct = () => {
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const [addProductPost, { error, isSuccess }] = useAddProductPostMutation();
+  const { data: categoriesData } = useGetAllCatagoryQuery("");
+  const { register, handleSubmit, setValue, reset } = useForm<TInputs>();
+  const onSubmit: SubmitHandler<TInputs> = (data) => {
+    // Parse image, size, and color fields from comma-separated strings to arrays
+    const parseStringToArray = (str?: string) =>
+      str?.split(",").map((item) => item.trim()) || [];
+
+    const option = {
+      ...data,
+      price: Number(data.price),
+      discount: Number(data.discount),
+      image: parseStringToArray(data.image as unknown as string),
+      size: parseStringToArray(data.size as unknown as string),
+      color: parseStringToArray(data.color as unknown as string),
+      stockQuantity: Number(data.stockQuantity),
+      availability: Boolean(data.availability),
+      category: data.category,
+    };
+
+    addProductPost(option);
+    if (isSuccess) {
+      toast.success("Product is created successfylly");
+    } else {
+      console.log(error);
+    }
+    reset();
+  };
+  if (error) {
+    console.log(error);
+  }
   return (
     <div>
       <div className=" p-5">
@@ -69,20 +76,21 @@ const AddProduct = () => {
                           <div>
                             <select
                               {...register("category", { required: true })}
-                              className="border-b bg-transparent focus:outline-none w-full  h-12 px-10 text-gray-400"
+                              className="border-b bg-transparent focus:outline-none w-full h-12 px-10 text-gray-400"
+                              onChange={(e) =>
+                                setValue("category", e.target.value)
+                              } // Directly update the form value
                             >
-                              <option value="Football">Football</option>
-                              <option value="Basketball">Basketball</option>
-                              <option value="Volleyball">Volleyball</option>
-                              <option value="Shoes">Shoes</option>
-                              <option value="Cricket">Cricket</option>
-                              <option value="Badminton">Badminton</option>
-                              <option value="Hockey">Hockey</option>
-                              <option value="Rugby">Rugby</option>
-                              <option value="Bike">Bike</option>
-                              <option value="Bag">Bag</option>
-                              <option value="WomenWear">WomenWear</option>
-                              <option value="MenWear">MenWear</option>
+                              {categoriesData?.data?.map(
+                                (category: TCatagory) => (
+                                  <option
+                                    key={category._id}
+                                    value={category.catagoryName}
+                                  >
+                                    {category.catagoryName}
+                                  </option>
+                                )
+                              )}
                             </select>
                           </div>
                           <div>
@@ -113,10 +121,49 @@ const AddProduct = () => {
                             />
                           </div>
                         </div>
+
                         <div className="grid grid-cols-2 gap-10">
                           <div>
                             <input
                               type="text"
+                              placeholder="Color"
+                              {...register("color")}
+                              className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
+                            />
+                          </div>
+                          <div>
+                            <input
+                              type="text"
+                              placeholder="Size"
+                              {...register("size")}
+                              className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-10">
+                          <div>
+                            <input
+                              type="number"
+                              placeholder="Discount"
+                              {...register("discount")}
+                              className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
+                            />
+                          </div>
+                          <div>
+                            <input
+                              type="text"
+                              placeholder="Discount Ending Date"
+                              {...register("discountEndingTime")}
+                              className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-10">
+                          <div>
+                            <input
+                              type="number"
                               placeholder="Quantity"
                               {...register("stockQuantity", { required: true })}
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"

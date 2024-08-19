@@ -7,9 +7,11 @@ import Contact from "@/pages/Contact Us/Contact";
 import AddBlogs from "@/pages/Dashboard/Admin/AddBlogs";
 import AddProduct from "@/pages/Dashboard/Admin/AddProduct";
 import AllBlogs from "@/pages/Dashboard/Admin/AllBlogs";
-import AllProducts from "@/pages/Dashboard/Admin/AllProducts";
+import Catagories from "@/pages/Dashboard/Admin/Catagories";
+
 import Dashboard from "@/pages/Dashboard/Admin/Dashboard";
 import ManageProduct from "@/pages/Dashboard/Admin/ManageProduct";
+import Orders from "@/pages/Dashboard/Admin/Orders";
 import Home from "@/pages/Home/Home";
 import SingleProduct from "@/pages/SingleProduct/SingleProduct";
 import { createBrowserRouter } from "react-router-dom";
@@ -58,12 +60,16 @@ const router = createBrowserRouter([
         element: <AddProduct />,
       },
       {
-        path: "all-products",
-        element: <AllProducts />,
+        path: "catagories",
+        element: <Catagories />,
       },
       {
         path: "manage-product",
         element: <ManageProduct />,
+      },
+      {
+        path: "orders",
+        element: <Orders />,
       },
       {
         path: "create-blogs",

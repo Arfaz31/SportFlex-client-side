@@ -37,6 +37,7 @@ const NewsletterBannner = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="p-2 w-full border border-[#222] rounded-l focus:outline-none focus:border-[#1abfdc]"
             />
+
             <button
               className="bg-[#10798b] px-4 py-2 h-full text-white rounded-r border border-[#222] -ml-px"
               type="submit"

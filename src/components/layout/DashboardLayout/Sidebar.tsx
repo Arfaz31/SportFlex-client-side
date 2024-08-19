@@ -3,6 +3,7 @@ import {
   File,
   LineChart,
   MessageSquarePlus,
+  Shapes,
   ShoppingBag,
   SquarePen,
   SquarePlus,
@@ -66,23 +67,7 @@ const Sidebar = () => {
                   Add Product
                 </li>
               </Link>
-              <Link to="/admin-dashboard/all-products">
-                <li
-                  onClick={() =>
-                    handleLinkClick("/admin-dashboard/all-products")
-                  }
-                  className={`rounded-md text-sm flex items-center gap-2 ${
-                    activeLink === "/admin-dashboard/all-products"
-                      ? " text-[#e4e4e7]"
-                      : "text-zinc-400"
-                  }`}
-                >
-                  <span>
-                    <ShoppingBag />
-                  </span>
-                  ALL Products
-                </li>
-              </Link>
+
               <Link to="/admin-dashboard/manage-product">
                 <li
                   onClick={() =>
@@ -100,6 +85,38 @@ const Sidebar = () => {
                   Manage Products
                 </li>
               </Link>
+              <Link to="/admin-dashboard/catagories">
+                <li
+                  onClick={() => handleLinkClick("/admin-dashboard/catagories")}
+                  className={`rounded-md text-sm flex items-center gap-2 ${
+                    activeLink === "/admin-dashboard/catagories"
+                      ? " text-[#e4e4e7]"
+                      : "text-zinc-400"
+                  }`}
+                >
+                  <span>
+                    <Shapes />
+                  </span>
+                  Catagories
+                </li>
+              </Link>
+
+              <Link to="/admin-dashboard/orders">
+                <li
+                  onClick={() => handleLinkClick("/admin-dashboard/orders")}
+                  className={`rounded-md text-sm flex items-center gap-2 ${
+                    activeLink === "/admin-dashboard/orders"
+                      ? " text-[#e4e4e7]"
+                      : "text-zinc-400"
+                  }`}
+                >
+                  <span>
+                    <ShoppingBag />
+                  </span>
+                  Orders
+                </li>
+              </Link>
+
               <Link to="/admin-dashboard/create-blogs">
                 <li
                   onClick={() =>

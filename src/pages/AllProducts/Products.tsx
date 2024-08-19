@@ -11,174 +11,45 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 //   SelectTrigger,
 //   SelectValue,
 // } from "@/components/ui/select";
+import Lottie from "lottie-react";
+import spinner from "@/assets/pIR8Sd9Ib1.json";
 import { Star, Heart, ShoppingCart } from "lucide-react";
-import football from "@/assets/category/football.png";
-import shoe from "@/assets/category/shoes.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import sports from "@/assets/sports.jpg";
 import { useState } from "react";
 import Select from "react-select";
+import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
+import { TInputs } from "@/type/Type";
+import LoadingPage from "@/components/shared/LoadingPage";
 const options: Array<{ value: string; label: string }> = [
   { value: "price-low-high", label: "Lowest to Highest" },
   { value: "price-high-low", label: "Highest to Lowest" },
 ];
 
 const Products = () => {
+  const [isGridLayout, setIsGridLayout] = useState(true);
   const [selectedOption, setSelectedOption] = useState<{
     value: string;
     label: string;
   } | null>(null);
+
+  const { data, isLoading, error } = useGetAllProductsQuery(undefined);
+
+  if (isLoading) {
+    return <LoadingPage />;
+  }
 
   const handleSelectChange = (
     selectedOption: { value: string; label: string } | null
   ) => {
     setSelectedOption(selectedOption);
   };
-  const featuredData = [
-    {
-      id: 1,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 2,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={shoe} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 3,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 4,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 5,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 6,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 7,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 8,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 9,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-    {
-      id: 10,
-      productName: "Sports Soccer Balls",
-      image: (className: string) => (
-        <img src={football} alt="Category 1" className={className} />
-      ),
-      brand: "Franklin",
-      price: 20,
-      category: "Football",
-      description:
-        "This soccer ball features a soft foam cover for a comfortable feel and reduced impact from headers. Its water-resistant PVC cover ensures durability in all weather conditions. Available in official sizes 3, 4, and 5, it's perfect for all skill levels. The high-quality air retention bladder prevents leaks and deflation, and it arrives fully inflated, ready for play.",
-      stockQuantity: "10",
-      availability: true,
-    },
-  ];
 
-  const [isGridLayout, setIsGridLayout] = useState(true);
+  if (error) {
+    console.log(error);
+  }
+  const placeholderCount = data ? data.length : 12;
   return (
     <div>
       <div className="relative">
@@ -188,9 +59,9 @@ const Products = () => {
           alt=""
         />
         <div className="bg-black opacity-45 md:h-[500px] h-[400px] w-full absolute top-0 z-1"></div>
-        <div className="flex items-center gap-3 absolute md:top-64 top-48 xl:left-[38%] lg:left-[32%] md:left-[30%] sm:left-[13%] left-[4%]">
+        <div className="flex items-center gap-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <span className="bg-[#00cde5] w-16 h-1"></span>
-          <h1 className="lg:text-4xl text-2xl text-white font-bold ">
+          <h1 className="lg:text-4xl text-2xl text-white font-bold text-center">
             ALL PRODUCTS
           </h1>
           <span className="bg-[#00cde5] w-16 h-1"></span>
@@ -513,117 +384,143 @@ const Products = () => {
                 {isGridLayout ? (
                   // Grid layout
                   <div className="grid lg:grid-cols-3 md:gap-6 grid-cols-2 gap-3 w-full">
-                    {featuredData.map((item) => (
-                      <div
-                        className="col-span-1 flex flex-col md:h-[360px] h-[305px] relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
-                        key={item.id}
-                      >
-                        <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
-                          <div>
-                            {item.image(
-                              "md:w-[120px] w-[100px] md:h-[120px] h-[100px] object-cover md:group-hover:scale-125 group-hover:scale-110 transition-transform duration-500 ease-in-out"
-                            )}
+                    {isLoading
+                      ? [...Array(placeholderCount)].map((_, index) => (
+                          <div
+                            key={index}
+                            className="col-span-1 flex flex-col md:h-[380px] h-[315px] relative group bg-[#f5f5f5] bg-opacity-50 w-full rounded-lg shadow-xl"
+                          >
+                            <div className="flex items-center justify-center overflow-hidden relative w-full h-full">
+                              <Lottie animationData={spinner} loop={true} />
+                            </div>
                           </div>
-                        </div>
-                        <div className="px-0 space-y-2">
-                          <div className="flex items-center justify-center">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className="md:size-5 size-[18px]"
-                                color="orange"
-                                fill="orange"
-                              />
-                            ))}
-                          </div>
-                          <p className="text-center md:text-lg text-sm ">
-                            {item.productName}
-                          </p>
-                          <p className="text-center md:text-lg text-sm">
-                            Brand: {item.brand}
-                          </p>
-                          <p className="text-center text-lg font-bold text-[#1abfdc]">
-                            $ {item.price}
-                          </p>
-                          <div className="hidden group-hover:block transition-transform duration-500 ease-in-out">
-                            <div className="flex sm:justify-around justify-center items-center lg:space-x-1 space-x-1">
-                              <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                <Heart className=" w-8  h-8" />
+                        ))
+                      : data?.data?.map((item: TInputs) => (
+                          <div
+                            className="col-span-1 flex flex-col md:h-[380px] h-[315px] px-2 relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                            key={item._id}
+                          >
+                            <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
+                              <div>
+                                <img
+                                  src={item.image[0]}
+                                  alt=""
+                                  className="md:w-[120px] w-[100px] md:h-[120px] h-[100px] object-cover md:group-hover:scale-125 group-hover:scale-110 transition-transform duration-500 ease-in-out"
+                                />
                               </div>
-                              <Link to={`/singleProduct/${item.id}`}>
-                                <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
-                                  View Details
-                                </Button>
-                              </Link>
-                              <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                <ShoppingCart className="w-8   h-8" />
+                            </div>
+                            <div className="px-0 space-y-2">
+                              <div className="flex items-center justify-center">
+                                {[...Array(5)].map((_, i) => (
+                                  <Star
+                                    key={i}
+                                    className="md:size-5 size-[18px]"
+                                    color="orange"
+                                    fill="orange"
+                                  />
+                                ))}
+                              </div>
+                              <p className="text-center md:text-lg text-sm ">
+                                {item.productName}
+                              </p>
+                              <p className="text-center md:text-lg text-sm">
+                                Brand: {item.brand}
+                              </p>
+                              <p className="text-center text-lg font-bold text-[#1abfdc]">
+                                $ {item.price}
+                              </p>
+                              <div className="hidden group-hover:block transition-transform duration-500 ease-in-out">
+                                <div className="flex sm:justify-around justify-center items-center lg:space-x-1 space-x-1">
+                                  <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                    <Heart className=" w-8  h-8" />
+                                  </div>
+                                  <Link to={`/singleProduct/${item._id}`}>
+                                    <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
+                                      View Details
+                                    </Button>
+                                  </Link>
+                                  <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                    <ShoppingCart className="w-8   h-8" />
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    ))}
+                        ))}
                   </div>
                 ) : (
                   // List layout
                   <div className="grid grid-cols-1 gap-10 xl:w-full lg:w-[710px] w-full mx-auto">
-                    {featuredData.slice(0, 6).map((item) => (
-                      <div
-                        className="grid lg:grid-cols-12 grid-rows-12 gap-5 lg:h-[315px] md:h-[435px] sm:h-[420px] h-[450px] relative group bg-[#f5f5f5] hover:transition-transform  hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
-                        key={item.id}
-                      >
-                        <div className="flex items-center justify-center overflow-hidden relative group   lg:col-span-4 row-span-4 lg:h-[300px]  w-full h-[180px]">
-                          <div>
-                            {item.image(
-                              "object-cover lg:group-hover:scale-125  group-hover:scale-110 transition-transform duration-500 ease-in-out w-full xl:h-[160px] h-[140px] mx-auto "
-                            )}
+                    {isLoading
+                      ? [...Array(6)].map((_, index) => (
+                          <div
+                            key={index}
+                            className="cgrid lg:grid-cols-12 grid-rows-12 gap-5 lg:h-[315px] md:h-[435px] sm:h-[420px] h-[450px]  group relative group bg-[#f5f5f5] bg-opacity-50 w-full rounded-lg shadow-xl"
+                          >
+                            <div className="flex items-center justify-center overflow-hidden relative w-full h-full">
+                              <Lottie animationData={spinner} loop={true} />
+                            </div>
                           </div>
-                        </div>
-                        <div className="py-6 px-4 lg:space-y-2 space-y-0 lg:col-span-8 row-span-8">
-                          <p className="md:text-lg font-bold text-base ">
-                            {item.productName}
-                          </p>
-                          <p className="lg:text-lg text-[#797f89] md:text-base text-sm pt-1">
-                            Brand: {item.brand}
-                          </p>
-                          <div className="flex items-center justify-between lg:pt-1 pt-4 pb-1">
-                            <p className="text-xl font-bold text-[#1abfdc]">
-                              $ {item.price}
-                            </p>
-                            <div className="flex">
-                              {[...Array(5)].map((_, i) => (
-                                <Star
-                                  key={i}
-                                  className="md:size-5 size-[18px]"
-                                  color="orange"
-                                  fill="orange"
+                        ))
+                      : data?.data?.slice(0, 6).map((item: TInputs) => (
+                          <div
+                            className="grid lg:grid-cols-12 grid-rows-12 gap-5 lg:h-[315px] md:h-[435px] sm:h-[420px] h-[450px] relative group bg-[#f5f5f5] hover:transition-transform  hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                            key={item._id}
+                          >
+                            <div className="flex items-center justify-center overflow-hidden relative group   lg:col-span-4 row-span-4 lg:h-[300px]  w-full h-[180px]">
+                              <div>
+                                <img
+                                  src={item.image[0]}
+                                  alt=""
+                                  className="object-cover lg:group-hover:scale-125  group-hover:scale-110 transition-transform duration-500 ease-in-out w-full xl:h-[160px] h-[140px] mx-auto "
                                 />
-                              ))}
-                            </div>
-                          </div>
-                          <p className="text-base text-[#797f89] pt-2 ">
-                            {item.description.length > 100
-                              ? `${item.description.slice(0, 120)}...`
-                              : item.description}
-                          </p>
-                          <div className="hidden group-hover:block transition-transform duration-500 ease-in-out pt-4">
-                            <div className="flex justify-start items-center space-x-5 ">
-                              <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                <Heart className=" w-8  h-8" />
-                              </div>
-                              <Link to={`/singleProduct/${item.id}`}>
-                                <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[90px] md:w-[110px] md:h-[45px]">
-                                  View Details
-                                </Button>
-                              </Link>
-                              <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                <ShoppingCart className="w-8   h-8" />
                               </div>
                             </div>
+                            <div className="py-6 px-4 lg:space-y-2 space-y-0 lg:col-span-8 row-span-8">
+                              <p className="md:text-lg font-bold text-base ">
+                                {item.productName}
+                              </p>
+                              <p className="lg:text-lg text-[#797f89] md:text-base text-sm pt-1">
+                                Brand: {item.brand}
+                              </p>
+                              <div className="flex items-center justify-between lg:pt-1 pt-4 pb-1">
+                                <p className="text-xl font-bold text-[#1abfdc]">
+                                  $ {item.price}
+                                </p>
+                                <div className="flex">
+                                  {[...Array(5)].map((_, i) => (
+                                    <Star
+                                      key={i}
+                                      className="md:size-5 size-[18px]"
+                                      color="orange"
+                                      fill="orange"
+                                    />
+                                  ))}
+                                </div>
+                              </div>
+                              <p className="text-base text-[#797f89] pt-2 ">
+                                {item.description.length > 100
+                                  ? `${item.description.slice(0, 120)}...`
+                                  : item.description}
+                              </p>
+                              <div className="hidden group-hover:block transition-transform duration-500 ease-in-out pt-4">
+                                <div className="flex justify-start items-center space-x-5 ">
+                                  <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                    <Heart className=" w-8  h-8" />
+                                  </div>
+                                  <Link to={`/singleProduct/${item._id}`}>
+                                    <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[90px] md:w-[110px] md:h-[45px]">
+                                      View Details
+                                    </Button>
+                                  </Link>
+                                  <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                    <ShoppingCart className="w-8   h-8" />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    ))}
+                        ))}
                   </div>
                 )}
               </div>

@@ -17,7 +17,7 @@ import Container from "../shared/Container";
 
 const HeroSection = () => {
   const plugin = React.useRef(
-    Autoplay({ delay: 6000, stopOnInteraction: true })
+    Autoplay({ delay: 4000, stopOnInteraction: true })
   );
   const sliderData = [
     {

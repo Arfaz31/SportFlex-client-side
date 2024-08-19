@@ -6,7 +6,7 @@ import insta from "@/assets/icon/insta.png";
 import twitter from "@/assets/icon/twit.png";
 import youtube from "@/assets/icon/tube.png";
 import card1 from "@/assets/icon/card-1.png";
-import card2 from "@/assets/icon/card-1.png";
+import card2 from "@/assets/icon/card-2.png";
 import card3 from "@/assets/icon/card-3.png";
 import card4 from "@/assets/icon/card-4.png";
 import card5 from "@/assets/icon/card-5.png";

@@ -1,4 +1,4 @@
-import contact from "@/assets/contact/contact3.jpg";
+import contact from "@/assets/contact.jpg";
 import Container from "@/components/shared/Container";
 import { Mail, MapPin, Phone } from "lucide-react";
 import fb from "@/assets/icon/fb.png";
@@ -66,8 +66,8 @@ const Contact = () => {
 
           <div className="bg-white lg:col-span-7 row-span-12 shadow-2xl rounded-xl px-8 lg:pt-14 pt-6">
             <div className="flex gap-3 pb-6">
-              <Input type="name" placeholder="Your First Name" />
-              <Input type="name" placeholder="Your Last Name" />
+              <Input type="text" placeholder="Your First Name" />
+              <Input type="text" placeholder="Your Last Name" />
             </div>
             <div className="flex gap-3 pb-6">
               <Input type="text" placeholder="Phone Number" />

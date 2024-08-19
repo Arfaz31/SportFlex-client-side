@@ -17,7 +17,7 @@ const TopNav = () => {
             </Link>
           </div>
           <div>
-            <div className="flex items-center  space-x-10 xl:pr-0 pr-6 pt-2">
+            <div className="flex items-center  space-x-10  pr-6 pt-2">
               <div>
                 <Search />
               </div>
