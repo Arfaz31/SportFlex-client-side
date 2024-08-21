@@ -27,7 +27,7 @@ const FeaturedProducts = () => {
                   </div>
                 </div>
               ))
-            : data?.data?.map((item: TInputs) => (
+            : data?.data?.slice(0, 10).map((item: TInputs) => (
                 <div
                   className="col-span-1 flex flex-col md:h-[380px] h-[315px] relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)] px-2"
                   key={item._id}
@@ -82,12 +82,14 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="flex items-center justify-center mt-28">
-          <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-sm text-white w-[220px] h-[50px] font-semibold">
-            VIEW MORE PRODUCTS{" "}
-            <span className="text-white pl-2">
-              <MoveRight />
-            </span>
-          </Button>
+          <Link to={`/products`}>
+            <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-sm text-white w-[220px] h-[50px] font-semibold">
+              VIEW MORE PRODUCTS{" "}
+              <span className="text-white pl-2">
+                <MoveRight />
+              </span>
+            </Button>
+          </Link>
         </div>
       </Container>
     </div>

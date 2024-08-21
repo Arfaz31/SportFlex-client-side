@@ -1,15 +1,8 @@
 import { useGetSingleProductQuery } from "@/redux/features/product/productApi";
 import description from "@/assets/description.jpg";
 import Container from "@/components/shared/Container";
-import {
-  CircleHelp,
-  MessageSquareText,
-  Share2,
-  Star,
-  // Heart,
-  // ShoppingCart,
-} from "lucide-react";
-import { useState } from "react";
+import { CircleHelp, MessageSquareText, Share2, Star } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useParams } from "react-router-dom";
 import card1 from "@/assets/icon/card-1.png";
@@ -21,15 +14,9 @@ import LoadingPage from "@/components/shared/LoadingPage";
 import user from "@/assets/testimonal/avatar1.jpg";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-// import { Card, CardContent } from "@/components/ui/card";
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "@/components/ui/carousel";
-// import { TInputs } from "@/type/Type";
+import ShareModal from "./ShareModal";
+import AskQuestion from "./AskQuestion";
+import RelatedProduct from "./RelatedProduct";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -37,17 +24,18 @@ const SingleProduct = () => {
   const [activeTab, setActiveTab] = useState("description");
   const [selectedImage, setSelectedImage] = useState<string>("");
   const { data, isLoading } = useGetSingleProductQuery(id);
-  // const { data: allProductData } = useGetAllProductsQuery(undefined);
+
   const item = data?.data;
-  if (item && item.image.length > 0 && !selectedImage) {
-    setSelectedImage(item.image[0]);
-  }
-  // !selectedImage: Checks if selectedImage is empty (not set yet). This prevents resetting the selectedImage if it’s already been set.
+  useEffect(() => {
+    // Reset the selected image whenever the id changes
+    if (item && item.image.length > 0) {
+      setSelectedImage(item.image[0]);
+    }
+  }, [id, item]);
 
-  // const filteredProducts = item
-  //   ? allProductData?.data?.filter((p: TInputs) => p.category === item.category)
-  //   : [];
-
+  const handleImageClick = (imgSrc: string) => {
+    setSelectedImage(imgSrc);
+  };
   const handleDrecase = () => {
     if (quantity <= 1) {
       alert("Qunatuity should be 1");
@@ -56,9 +44,6 @@ const SingleProduct = () => {
     }
   };
 
-  const handleImageClick = (imgSrc: string) => {
-    setSelectedImage(imgSrc);
-  };
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
   };
@@ -86,29 +71,33 @@ const SingleProduct = () => {
 
       <div>
         <Container className="md:my-24 mt-20">
-          <div className="grid grid-cols-12 gap-6 ">
+          <div className="grid grid-cols-12 gap-10 ">
             <div className="col-span-6 flex gap-2">
               <div className="flex flex-col gap-2">
                 {item?.image?.map((imgSrc: string, index: number) => (
                   <div
                     key={index}
-                    className="flex items-center justify-center mb-5 border border-1 border-[#00cde5] cursor-pointer"
+                    className={`flex items-center justify-center mb-5 border ${
+                      selectedImage === imgSrc
+                        ? "border-[#10798b] border-4"
+                        : "border-[#00cde5] border-1"
+                    } cursor-pointer`}
                     onClick={() => handleImageClick(imgSrc)}
                   >
                     <img
                       src={imgSrc}
                       alt={`Image ${index + 1}`}
-                      className="w-[100px] h-[90px] mx-auto"
+                      className="w-[100px] h-[90px] mx-auto p-1"
                     />
                   </div>
                 ))}
               </div>
 
-              <div className="bg-[#f5f5f5] w-full flex pt-12 ">
+              <div className=" w-full flex pt-12 px-4">
                 <img
                   src={selectedImage}
                   alt="Selected"
-                  className="w-[450px] h-[450px] mx-auto"
+                  className="max-w-full max-h-[471px] mx-auto"
                 />
               </div>
             </div>
@@ -193,13 +182,17 @@ const SingleProduct = () => {
               </div>
 
               <div className="flex items-center gap-8 mt-8">
-                <div className="flex gap-2 hover:text-[#00cde5] cursor-pointer">
+                <div className="flex gap-2 hover:text-[#00cde5] cursor-pointer items-center">
                   <Share2 />
-                  <p>Share</p>
+                  <div>
+                    <ShareModal />
+                  </div>
                 </div>
-                <div className="flex gap-2 hover:text-[#00cde5] cursor-pointer">
+                <div className="flex gap-2 hover:text-[#00cde5] cursor-pointe items-centerr">
                   <CircleHelp />
-                  <p>Ask A Question</p>
+                  <div>
+                    <AskQuestion />
+                  </div>
                 </div>
                 <div className="flex gap-2 hover:text-[#00cde5] cursor-pointer">
                   <MessageSquareText />
@@ -406,97 +399,9 @@ const SingleProduct = () => {
       </div>
 
       {/* Related product */}
-      {/* <div>
-        <Container className=" my-28">
-          <div className="relative">
-            <h1 className="xl:text-4xl lg:text-3xl text-2xl font-bold text-center mb-10 ">
-              RELATED PRODUCTS
-            </h1>
-
-            <div>
-              <Carousel
-                opts={{
-                  align: "start",
-                }}
-                className="w-full "
-              >
-                <CarouselContent>
-                  {filteredProducts?.slice(0, 8).map((product: TInputs) => {
-                    <CarouselItem
-                      key={product?._id}
-                      className="basis-1/2 md:basis-1/3 lg:basis-1/4"
-                    >
-                      <div className="p-1">
-                        <Card className="border-none ">
-                          <CardContent className="flex flex-col relative aspect-square items-center justify-center sm:p-2 p-1">
-                            <div className="w-full">
-                              <div className=" flex flex-col md:h-[380px] h-[315px] px-2 relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]">
-                                <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
-                                  <div>
-                                    <img
-                                      src={product?.image[0]}
-                                      alt=""
-                                      className="md:w-[120px] w-[100px] md:h-[120px] h-[100px] object-cover md:group-hover:scale-125 group-hover:scale-110 transition-transform duration-500 ease-in-out"
-                                    />
-                                  </div>
-                                </div>
-                                <div className="px-0 space-y-2">
-                                  <div className="flex items-center justify-center">
-                                    {[...Array(5)].map((_, i) => (
-                                      <Star
-                                        key={i}
-                                        className="md:size-5 size-[18px]"
-                                        color="orange"
-                                        fill="orange"
-                                      />
-                                    ))}
-                                  </div>
-                                  <p className="text-center md:text-lg text-sm ">
-                                    {product?.productName}
-                                  </p>
-                                  <p className="text-center md:text-lg text-sm">
-                                    Brand: {product.brand}
-                                  </p>
-                                  <p className="text-center text-lg font-bold text-[#1abfdc]">
-                                    $ {product.price}
-                                  </p>
-                                  <div className="hidden group-hover:block transition-transform duration-500 ease-in-out">
-                                    <div className="flex sm:justify-around justify-center items-center lg:space-x-1 space-x-1">
-                                      <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                        <Heart className=" w-8  h-8" />
-                                      </div>
-                                      <Link
-                                        to={`/singleProduct/${product?._id}`}
-                                      >
-                                        <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
-                                          View Details
-                                        </Button>
-                                      </Link>
-                                      <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                        <ShoppingCart className="w-8   h-8" />
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </CarouselItem>;
-                  })}
-                </CarouselContent>
-                <CarouselPrevious className="absolute md:left-[25%] left-[12%] xl:-top-16 -top-14  transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
-                  &#9664;
-                </CarouselPrevious>
-                <CarouselNext className="absolute md:right-[25%] right-[12%] xl:-top-16  -top-14  transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
-                  &#9654;
-                </CarouselNext>
-              </Carousel>
-            </div>
-          </div>
-        </Container>
-      </div> */}
+      <div>
+        <RelatedProduct />
+      </div>
     </div>
   );
 };

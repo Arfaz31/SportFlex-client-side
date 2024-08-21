@@ -8,7 +8,7 @@ const DashboardLayout = () => {
       <div className=" xl:col-span-2 col-span-3 border-r border-[#59647c] w-full h-screen sticky top-0 left-0 overflow-auto   text-white shadow-2xl ">
         <Sidebar />
       </div>
-      <div className="xl:col-span-10 col-span-9 text-white  w-full">
+      <div className="xl:col-span-10 col-span-9 text-white   w-full ">
         <TopNav />
         <Outlet />
       </div>

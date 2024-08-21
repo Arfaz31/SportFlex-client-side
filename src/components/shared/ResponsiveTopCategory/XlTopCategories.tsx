@@ -13,6 +13,7 @@ import {
 import Container from "@/components/shared/Container";
 import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
 import { TCatagory } from "@/type/Type";
+import { Link } from "react-router-dom";
 
 const XlTopCategories = () => {
   const { data: catagoryData, isLoading } = useGetAllCatagoryQuery(undefined);
@@ -61,22 +62,26 @@ const XlTopCategories = () => {
                       <Card className="border-0 h-full  rounded-none ">
                         <CardContent className="relative overflow-hidden ">
                           <div className="flex flex-col items-center justify-center gap-4 h-[260px] ">
-                            <div className="border-2 border-[#00cde5] bg-[#f5f5f5] rounded-full w-36 h-36 flex items-center justify-center overflow-hidden relative group">
-                              <div>
-                                <img
-                                  src={cat?.image}
-                                  alt=""
-                                  className="w-[95px] h-[95px] object-cover group-hover:scale-125 transition-transform duration-500 ease-in-out"
-                                />
+                            <Link to={`/products?categoryId=${cat._id}`}>
+                              <div className="border-2 border-[#00cde5] bg-[#f5f5f5] rounded-full w-36 h-36 flex items-center justify-center overflow-hidden relative group">
+                                <div>
+                                  <img
+                                    src={cat?.image}
+                                    alt=""
+                                    className="w-[95px] h-[95px] object-cover group-hover:scale-125 transition-transform duration-500 ease-in-out"
+                                  />
+                                </div>
                               </div>
-                            </div>
+                            </Link>
                             <div>
                               <p className="lg:text-2xl text-xl font-semibold text-center pt-2">
                                 {cat?.catagoryName}
                               </p>
-                              <p className="w-60 text-center text-base text-gray-600 hover:text-[#00cde5] transition-all duration-500 ease-in-out cursor-pointer pt-1">
-                                View More
-                              </p>
+                              <Link to={`/products?categoryId=${cat._id}`}>
+                                <p className="w-60 text-center text-base text-gray-600 hover:text-[#00cde5] transition-all duration-500 ease-in-out cursor-pointer pt-1">
+                                  View More
+                                </p>
+                              </Link>
                             </div>
                           </div>
                         </CardContent>

@@ -14,10 +14,15 @@ const productApi = baseApi.injectEndpoints({
     }),
 
     getAllProducts: builder.query({
-      query: () => {
+      query: (categoryId) => {
+        const params = new URLSearchParams();
+        if (categoryId) {
+          params.append("categoryId", categoryId);
+        }
         return {
           url: "/product",
           method: "GET",
+          params: params,
         };
       },
       providesTags: ["products"],
@@ -30,6 +35,13 @@ const productApi = baseApi.injectEndpoints({
       }),
       providesTags: ["products"],
     }),
+    getRelatedProducts: builder.query({
+      query: (id) => ({
+        url: `/product/${id}/related`,
+        method: "GET",
+      }),
+      providesTags: ["products"],
+    }),
   }),
 });
 
@@ -37,4 +49,5 @@ export const {
   useAddProductPostMutation,
   useGetAllProductsQuery,
   useGetSingleProductQuery,
+  useGetRelatedProductsQuery,
 } = productApi;

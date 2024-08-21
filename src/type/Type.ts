@@ -1,5 +1,12 @@
+export type TCatagory = {
+  _id: string;
+  catagoryName: string;
+  slug: string;
+  image: string;
+};
+
 export type TInputs = {
-  _id?: string;
+  _id: string;
   productName: string;
   image: string[];
   category: string;
@@ -12,11 +19,4 @@ export type TInputs = {
   discountEndingTime?: string;
   stockQuantity: number;
   availability: boolean;
-};
-
-export type TCatagory = {
-  _id: string;
-  catagoryName: string;
-  slug: string;
-  image: string;
 };

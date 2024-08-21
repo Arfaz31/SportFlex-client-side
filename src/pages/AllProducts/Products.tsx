@@ -15,7 +15,7 @@ import Lottie from "lottie-react";
 import spinner from "@/assets/pIR8Sd9Ib1.json";
 import { Star, Heart, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import sports from "@/assets/sports.jpg";
 import { useState } from "react";
 import Select from "react-select";
@@ -33,8 +33,9 @@ const Products = () => {
     value: string;
     label: string;
   } | null>(null);
-
-  const { data, isLoading, error } = useGetAllProductsQuery(undefined);
+  const [searchParams] = useSearchParams();
+  const categoryId = searchParams.get("categoryId");
+  const { data, isLoading, error } = useGetAllProductsQuery(categoryId);
 
   if (isLoading) {
     return <LoadingPage />;

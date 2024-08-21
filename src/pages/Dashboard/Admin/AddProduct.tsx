@@ -7,7 +7,7 @@ import { toast } from "sonner";
 const AddProduct = () => {
   const [addProductPost, { error, isSuccess }] = useAddProductPostMutation();
   const { data: categoriesData } = useGetAllCatagoryQuery("");
-  const { register, handleSubmit, setValue, reset } = useForm<TInputs>();
+  const { register, handleSubmit, setValue } = useForm<TInputs>();
   const onSubmit: SubmitHandler<TInputs> = (data) => {
     // Parse image, size, and color fields from comma-separated strings to arrays
     const parseStringToArray = (str?: string) =>
@@ -31,7 +31,7 @@ const AddProduct = () => {
     } else {
       console.log(error);
     }
-    reset();
+    // reset();
   };
   if (error) {
     console.log(error);
@@ -41,7 +41,7 @@ const AddProduct = () => {
       <div className=" p-5">
         <div className="bg-[#1a2c52]  rounded-md  p-2">
           <div className=" bg-[#14274e]  p-4 rounded-md w-full ">
-            <div className=" h-[470px] w-full rounded-lg">
+            <div className=" h-[560px] w-full rounded-lg">
               <div className="border-b h-[50px] ">
                 <h1 className="xl:text-3xl text-2xl font-semibold">
                   Create Product Here

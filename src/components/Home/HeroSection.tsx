@@ -14,6 +14,7 @@ import sliderImage2 from "./../../assets/slideImage2.jpg";
 import sliderImage4 from "./../../assets/slideImage4.png";
 import { Button } from "../ui/button";
 import Container from "../shared/Container";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const plugin = React.useRef(
@@ -67,9 +68,11 @@ const HeroSection = () => {
                     <h1 className="text-white xl:text-[48px] lg:text-4xl md:text-3xl  text-2xl font-bold  lg:tracking-wide lg:leading-normal max-w-[15ch] lg:pb-6 pb-3">
                       {slider.title}
                     </h1>
-                    <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
-                      SHOP NOW
-                    </Button>
+                    <Link to={`/products`}>
+                      <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  lg:text-lg  text-xs text-white  h-[38px] w-[82px] lg:w-[120px] lg:h-[50px]">
+                        SHOP NOW
+                      </Button>
+                    </Link>
                   </Container>
                 </CardContent>
               </Card>

@@ -15,6 +15,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import Lottie from "lottie-react";
 import spinner from "@/assets/pIR8Sd9Ib1.json";
+import CatagoriesTable from "./CatagoriesTable";
 const Catagories = () => {
   const [addCatagory, { error, isLoading }] = useAddCatagoryMutation();
   const { register, handleSubmit, reset } = useForm<TCatagory>();
@@ -38,15 +39,15 @@ const Catagories = () => {
     console.log(error);
   }
   return (
-    <div>
-      <div className=" p-5">
-        <div className="bg-[#1a2c52]  rounded-md  p-2">
-          <div className=" bg-[#14274e]  p-4 rounded-md w-full ">
-            <div className=" h-[470px] w-full rounded-lg">
+    <div className="">
+      <div className=" p-5  h-full overflow-auto">
+        <div className="bg-[#1a2c52]  rounded-md  p-2 h-full">
+          <div className=" bg-[#14274e]  p-4 rounded-md w-full h-full flex flex-col">
+            <div className=" h-full w-full rounded-lg">
               <div className="border-b  h-[70px] flex justify-between items-center">
                 <div>
                   <h1 className="xl:text-3xl text-2xl font-semibold">
-                    Enventory Catagory
+                    Inventory Of Catagories
                   </h1>
                 </div>
                 <div className="pb-2">
@@ -118,10 +119,12 @@ const Catagories = () => {
                   </Dialog>
                 </div>
               </div>
-              <div className="relative  mt-3 ">
+              <div className="  mt-3 ">
                 <div className="flex justify-between flex-col"></div>
-                <div className="bg-white bg-opacity-10 border border-gray-300 border-t-0 border-opacity-10 w-full rounded-lg backdrop-blur-md shadow-2xl backdrop-filter  absolute top-0 z-10 ">
-                  <div className="p-10"></div>
+                <div className="bg-white bg-opacity-10 border border-gray-300 border-t-0 border-opacity-10 w-full rounded-lg backdrop-blur-md shadow-2xl backdrop-filter  flex-1 overflow-auto ">
+                  <div className="p-10 h-full">
+                    <CatagoriesTable />
+                  </div>
                 </div>
               </div>
             </div>

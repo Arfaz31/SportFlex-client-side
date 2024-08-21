@@ -7,10 +7,10 @@ import Contact from "@/pages/Contact Us/Contact";
 import AddBlogs from "@/pages/Dashboard/Admin/AddBlogs";
 import AddProduct from "@/pages/Dashboard/Admin/AddProduct";
 import AllBlogs from "@/pages/Dashboard/Admin/AllBlogs";
-import Catagories from "@/pages/Dashboard/Admin/Catagories";
+import Catagories from "@/pages/Dashboard/Admin/Catagories/Catagories";
 
 import Dashboard from "@/pages/Dashboard/Admin/Dashboard";
-import ManageProduct from "@/pages/Dashboard/Admin/ManageProduct";
+import ManageProduct from "@/pages/Dashboard/Admin/ManageProducts/ManageProduct";
 import Orders from "@/pages/Dashboard/Admin/Orders";
 import Home from "@/pages/Home/Home";
 import SingleProduct from "@/pages/SingleProduct/SingleProduct";

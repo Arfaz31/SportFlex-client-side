@@ -1,13 +1,23 @@
 import Footer from "@/components/shared/Footer";
+import LoadingPage from "@/components/shared/LoadingPage";
 import Navbar from "@/components/shared/Navbar";
 import { Outlet } from "react-router-dom";
 
-const MainLayout = () => {
+interface MainLayoutProps {
+  isLoading: boolean;
+}
+const MainLayout = ({ isLoading }: MainLayoutProps) => {
   return (
     <div>
-      <Navbar />
-      <Outlet />
-      <Footer />
+      {isLoading ? (
+        <LoadingPage />
+      ) : (
+        <>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </>
+      )}
     </div>
   );
 };
