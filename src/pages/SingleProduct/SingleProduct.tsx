@@ -69,54 +69,59 @@ const SingleProduct = () => {
         </div>
       </div>
 
-      <div>
-        <Container className="md:my-24 mt-20">
-          <div className="grid grid-cols-12 gap-10 ">
-            <div className="col-span-6 flex gap-2">
-              <div className="flex flex-col gap-2">
-                {item?.image?.map((imgSrc: string, index: number) => (
-                  <div
-                    key={index}
-                    className={`flex items-center justify-center mb-5 border ${
-                      selectedImage === imgSrc
-                        ? "border-[#10798b] border-4"
-                        : "border-[#00cde5] border-1"
-                    } cursor-pointer`}
-                    onClick={() => handleImageClick(imgSrc)}
-                  >
-                    <img
-                      src={imgSrc}
-                      alt={`Image ${index + 1}`}
-                      className="w-[100px] h-[90px] mx-auto p-1"
-                    />
-                  </div>
-                ))}
-              </div>
+      <div className="xl:px-0 px-4">
+        <Container className="md:my-24 mt-20 ">
+          <div className="grid grid-cols-12 lg:gap-10 gap-5 ">
+            <div className="md:col-span-6 col-span-full  order-1">
+              <div className="flex md:flex-row flex-col-reverse md:gap-2 gap-10">
+                <div className="flex md:flex-col flex-row md:gap-2 gap-3">
+                  {item?.image?.map((imgSrc: string, index: number) => (
+                    <div
+                      key={index}
+                      className={`flex items-center justify-center mb-5 border ${
+                        selectedImage === imgSrc
+                          ? "border-[#10798b] border-4"
+                          : "border-[#00cde5] border-1"
+                      } cursor-pointer`}
+                      onClick={() => handleImageClick(imgSrc)}
+                    >
+                      <img
+                        src={imgSrc}
+                        alt={`Image ${index + 1}`}
+                        className="md:w-[100px] md:h-[90px] w-[80px] h-[80px] mx-auto p-1"
+                      />
+                    </div>
+                  ))}
+                </div>
 
-              <div className=" w-full flex pt-12 px-4">
-                <img
-                  src={selectedImage}
-                  alt="Selected"
-                  className="max-w-full max-h-[471px] mx-auto"
-                />
+                <div className="w-full flex pt-12 px-4">
+                  <img
+                    src={selectedImage}
+                    alt="Selected"
+                    className="max-w-full lg:max-h-[471px] h-[400px] mx-auto"
+                  />
+                </div>
               </div>
             </div>
-            <div className="col-span-6">
-              <p className="text-2xl font-bold pb-2">{item?.productName}</p>
+
+            <div className="md:col-span-6 col-span-full order-2">
+              <p className="lg:text-2xl text-xl font-bold pb-2">
+                {item?.productName}
+              </p>
               <div className="flex items-center  pb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="md:size-5 size-[18px]"
+                    className="lg:size-5 size-[18px]"
                     color="orange"
                     fill="orange"
                   />
                 ))}
               </div>
-              <p className="text-2xl font-bold text-[#1abfdc] pb-4">
+              <p className="lg:text-2xl text-xl font-bold text-[#1abfdc] pb-4">
                 ${item?.price}
               </p>
-              <p className="text-base text-[#797f89] pb-5 ">
+              <p className="lg:text-base text-sm text-[#797f89] pb-5 ">
                 {item?.description?.length > 100
                   ? `${item?.description?.slice(0, 190)}...`
                   : item?.description}
@@ -125,34 +130,38 @@ const SingleProduct = () => {
                 <span className="bg-[#00cde5] w-24 h-1"></span>
                 <hr className="bg-[#6f7276] w-full" />
               </div>
-              <p className="text-lg pt-5">
+              <p className="lg:text-lg text-base pt-5">
                 <span className="font-semibold">Brand:</span> {item?.brand}
               </p>
-              <p className="text-lg pt-3">
+              <p className="lg:text-lg text-base pt-3">
                 <span className="font-semibold">Category:</span>{" "}
                 {item?.category?.catagoryName}
               </p>
-              <p className="text-lg pt-3">
+              <p className="lg:text-lg text-base pt-3">
                 <span className="font-semibold">Stock Quantity:</span>{" "}
                 {item?.stockQuantity}
               </p>
-              <p className="text-lg pt-3 pb-3">
+              <p className="lg:text-lg text-base pt-3 pb-3">
                 <span className="font-semibold">Availability:</span>{" "}
                 {item?.availability ? "In Stock" : "Out of Stock"}
               </p>
-              {item?.size && item?.size.length > 0 && (
-                <div className="flex items-center gap-4 pb-4">
-                  <p className="font-semibold text-lg">Size: </p>
-                  {item?.size.map((sz: string, index: number) => (
-                    <p
-                      key={index}
-                      className="bg-transparent p-2 text-black text-xl border border-[#797f89] border-1 hover:bg-gradient-to-r from-[#00cde5] to-[#10798b] hover:border-none hover:text-white cursor-pointer"
-                    >
-                      {sz}
-                    </p>
-                  ))}
-                </div>
-              )}
+              {item?.size &&
+                item?.size.filter((sz: string) => sz.trim().length > 0).length >
+                  0 && (
+                  <div className="flex items-center gap-4 pb-4">
+                    <p className="font-semibold lg:text-lg text-base">Size: </p>
+                    {item?.size
+                      .filter((sz: string) => sz.trim().length > 0) // Filter out empty strings
+                      .map((sz: string, index: number) => (
+                        <p
+                          key={index}
+                          className="bg-transparent p-2 text-black lg:text-lg text-base border border-[#797f89] border-1 hover:bg-gradient-to-r from-[#00cde5] to-[#10798b] hover:border-none hover:text-white cursor-pointer"
+                        >
+                          {sz}
+                        </p>
+                      ))}
+                  </div>
+                )}
 
               <div className="flex items-center gap-4 mt-3 border border-[#797f89] border-1 w-fit">
                 <Button
@@ -181,7 +190,7 @@ const SingleProduct = () => {
                 </Link>
               </div>
 
-              <div className="flex items-center gap-8 mt-8">
+              <div className="flex items-center lg:gap-8 gap-5 mt-8">
                 <div className="flex gap-2 hover:text-[#00cde5] cursor-pointer items-center">
                   <Share2 />
                   <div>
@@ -216,9 +225,9 @@ const SingleProduct = () => {
         </Container>
       </div>
 
-      <div className="bg-[#f5f5f5] w-full mt-28 py-20">
+      <div className="bg-[#f5f5f5] w-full mt-28 py-20 xl:px-0 px-4">
         <Container>
-          <div className="relative flex gap-16 items-center">
+          <div className="relative flex md:gap-16 sm:gap-8 gap-5 items-center">
             <div
               className={`relative cursor-pointer ${
                 activeTab === "description"
@@ -227,11 +236,14 @@ const SingleProduct = () => {
               }`}
               onClick={() => handleTabClick("description")}
             >
-              <p className="text-xl font-bold pb-2">Description</p>
+              <p className="md:text-xl sm:text-lg text-base font-bold pb-2">
+                Description
+              </p>
               {activeTab === "description" && (
                 <div className="absolute left-0 bottom-0 w-full h-1 bg-underline-color transition-transform duration-300 transform scale-x-100" />
               )}
             </div>
+
             <div
               className={`relative cursor-pointer ${
                 activeTab === "shipping"
@@ -240,7 +252,9 @@ const SingleProduct = () => {
               }`}
               onClick={() => handleTabClick("shipping")}
             >
-              <p className="text-xl font-bold pb-2">Shipping Info</p>
+              <p className="md:text-xl sm:text-lg text-base font-bold pb-2">
+                Shipping Info
+              </p>
 
               {activeTab === "shipping" && (
                 <div className="absolute left-0 bottom-0 w-full h-1 bg-underline-color transition-transform duration-300 transform scale-x-100" />
@@ -254,7 +268,9 @@ const SingleProduct = () => {
               }`}
               onClick={() => handleTabClick("reviews")}
             >
-              <p className="text-xl font-bold pb-2">Reviews</p>
+              <p className="md:text-xl sm:text-lg text-base font-bold pb-2">
+                Reviews
+              </p>
 
               {activeTab === "reviews" && (
                 <div className="absolute left-0 bottom-0 w-full h-1 bg-underline-color transition-transform duration-300 transform scale-x-100" />
@@ -265,12 +281,14 @@ const SingleProduct = () => {
           <div className="mt-10">
             {activeTab === "description" && item && (
               <div>
-                <p className="text-base p-10 ">{item?.description}</p>
+                <p className="text-base  md:p-10 p-6 ">{item?.description}</p>
               </div>
             )}
             {activeTab === "shipping" && (
               <div>
-                <p className="text-base font-bold pb-3">Shipping Methods</p>
+                <p className="text-base font-bold pb-3 pt-3">
+                  Shipping Methods
+                </p>
                 <p>
                   We offer reliable shipping methods to ensure your order
                   reaches you in a timely manner. Our preferred shipping
@@ -324,12 +342,14 @@ const SingleProduct = () => {
             )}
             {activeTab === "reviews" && (
               <div>
-                <p className="text-2xl font-bold pt-10">Customer Reviews</p>
+                <p className="lg:text-2xl text-xl font-bold md:pt-10 pt-3">
+                  Customer Reviews
+                </p>
                 <div className="flex items-center  py-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="md:size-6 size-[18px]"
+                      className="lg:size-6 size-[20px]"
                       color="orange"
                       fill="orange"
                     />
@@ -339,8 +359,8 @@ const SingleProduct = () => {
                   <span className="bg-[#00cde5] w-28 h-1"></span>
                   <hr className="bg-[#6f7276] w-full" />
                 </div>
-                <div className="flex gap-10">
-                  <div className="flex flex-col items-center justify-center gap-1">
+                <div className="flex md:flex-row flex-col md:gap-10 gap-5">
+                  <div className="flex flex-col md:items-center items-start md:justify-center justify-start gap-1">
                     <img src={user} className="w-14 h-14 rounded-full" alt="" />
                     <p className="text-base font-semibold">Halinson</p>
                     <div className="flex items-center  ">
@@ -376,8 +396,10 @@ const SingleProduct = () => {
                   </div>
                 </div>
 
-                <p className="text-2xl font-bold mt-28 pb-6">Add A Review</p>
-                <div className="bg-white   px-8 lg:py-14 pt-6 ">
+                <p className="lg:text-2xl text-xl font-bold mt-28 pb-6">
+                  Add A Review
+                </p>
+                <div className="bg-white   px-8 py-14 pt-6 ">
                   <div className="flex gap-5 pb-6">
                     <Input type="text" placeholder="Review Title" />
                     <Input id="picture" type="file" />
@@ -399,7 +421,7 @@ const SingleProduct = () => {
       </div>
 
       {/* Related product */}
-      <div>
+      <div className="xl:px-0 px-4">
         <RelatedProduct />
       </div>
     </div>

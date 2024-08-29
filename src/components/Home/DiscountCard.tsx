@@ -13,8 +13,8 @@ const DiscountCard = () => {
       <div className="grid grid-cols-12 lg:gap-5 gap-4">
         <div className="md:col-span-6 col-span-12">
           {catagoryData?.data?.slice(10, 11).map((cat: TCatagory) => (
-            <Link to={`/products?categoryId=${cat._id}`}>
-              <div key={cat._id}>
+            <Link to={`/products?categoryId=${cat._id}`} key={cat._id}>
+              <div>
                 <div className="relative overflow-hidden group w-full xl:h-[395px] lg:[350px]">
                   <img
                     className=" group-hover:scale-110 transition-transform duration-500 w-full xl:h-[395px] lg:[350px]"
@@ -43,7 +43,7 @@ const DiscountCard = () => {
 
         <div className="md:col-span-6 col-span-12">
           {catagoryData?.data?.slice(3, 4).map((cat: TCatagory) => (
-            <Link to={`/products?categoryId=${cat._id}`}>
+            <Link to={`/products?categoryId=${cat._id}`} key={cat._id}>
               <div className="relative overflow-hidden group w-full xl:h-[395px] lg:[350px]">
                 <img
                   className=" group-hover:scale-110 transition-transform duration-500 w-full xl:h-[395px] lg:[350px]"

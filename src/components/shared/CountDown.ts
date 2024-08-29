@@ -6,7 +6,7 @@ interface TimeLeft {
   minutes: number;
   seconds: number;
 }
-const CountDown = (endDate: string): TimeLeft => {
+const useCountDown = (endDate: string): TimeLeft => {
   //   useCallback: This hook memoizes the function to prevent it from being recreated on every render. It only recalculates if the endDate changes.
   const calculateTimeLeft = useCallback((): TimeLeft => {
     const difference = +new Date(endDate) - +new Date();
@@ -41,4 +41,4 @@ const CountDown = (endDate: string): TimeLeft => {
   return timeLeft;
 };
 
-export default CountDown;
+export default useCountDown;

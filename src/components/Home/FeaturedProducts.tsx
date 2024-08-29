@@ -27,7 +27,7 @@ const FeaturedProducts = () => {
                   </div>
                 </div>
               ))
-            : data?.data?.slice(0, 10).map((item: TInputs) => (
+            : data?.data?.products?.slice(0, 10).map((item: TInputs) => (
                 <div
                   className="col-span-1 flex flex-col md:h-[380px] h-[315px] relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)] px-2"
                   key={item._id}

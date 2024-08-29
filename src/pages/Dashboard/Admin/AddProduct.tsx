@@ -5,10 +5,16 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 
 const AddProduct = () => {
-  const [addProductPost, { error, isSuccess }] = useAddProductPostMutation();
+  const [addProductPost, { error }] = useAddProductPostMutation();
   const { data: categoriesData } = useGetAllCatagoryQuery("");
-  const { register, handleSubmit, setValue } = useForm<TInputs>();
-  const onSubmit: SubmitHandler<TInputs> = (data) => {
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    formState: { errors },
+  } = useForm<TInputs>();
+  const onSubmit: SubmitHandler<TInputs> = async (data) => {
     // Parse image, size, and color fields from comma-separated strings to arrays
     const parseStringToArray = (str?: string) =>
       str?.split(",").map((item) => item.trim()) || [];
@@ -25,13 +31,14 @@ const AddProduct = () => {
       category: data.category,
     };
 
-    addProductPost(option);
-    if (isSuccess) {
-      toast.success("Product is created successfylly");
-    } else {
-      console.log(error);
+    try {
+      // Call the mutation and wait for it to complete
+      await addProductPost(option).unwrap(); // .unwrap() returns a promise that resolves on success or rejects on error
+      toast.success("Product is created successfully");
+      reset();
+    } catch (error) {
+      toast.error("Failed to create product");
     }
-    // reset();
   };
   if (error) {
     console.log(error);
@@ -58,24 +65,45 @@ const AddProduct = () => {
                             <input
                               type="text"
                               placeholder="Product name"
-                              {...register("productName", { required: true })}
+                              {...register("productName", {
+                                required: "Product name is required",
+                              })}
+                              aria-invalid={
+                                errors.productName ? "true" : "false"
+                              }
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
                             />
+                            {errors.productName && (
+                              <p className="text-red-500" role="alert">
+                                {errors.productName.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <input
                               type="text"
                               placeholder="Image"
-                              {...register("image", { required: true })}
+                              {...register("image", {
+                                required: "Image is required",
+                              })}
+                              aria-invalid={errors.image ? "true" : "false"}
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
                             />
+                            {errors.image && (
+                              <p className="text-red-500" role="alert">
+                                {errors.image.message}
+                              </p>
+                            )}
                           </div>
                         </div>
 
                         <div className="grid grid-cols-2 gap-10">
                           <div>
                             <select
-                              {...register("category", { required: true })}
+                              {...register("category", {
+                                required: "Category is required",
+                              })}
+                              aria-invalid={errors.category ? "true" : "false"}
                               className="border-b bg-transparent focus:outline-none w-full h-12 px-10 text-gray-400"
                               onChange={(e) =>
                                 setValue("category", e.target.value)
@@ -92,14 +120,27 @@ const AddProduct = () => {
                                 )
                               )}
                             </select>
+                            {errors.category && (
+                              <p className="text-red-500" role="alert">
+                                {errors.category.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <input
                               type="text"
                               placeholder="price"
-                              {...register("price", { required: true })}
+                              {...register("price", {
+                                required: "Price is required",
+                              })}
+                              aria-invalid={errors.price ? "true" : "false"}
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
                             />
+                            {errors.price && (
+                              <p className="text-red-500" role="alert">
+                                {errors.price.message}
+                              </p>
+                            )}
                           </div>
                         </div>
 
@@ -108,17 +149,35 @@ const AddProduct = () => {
                             <input
                               type="text"
                               placeholder="Brand"
-                              {...register("brand", { required: true })}
+                              {...register("brand", {
+                                required: "Brand is required",
+                              })}
+                              aria-invalid={errors.brand ? "true" : "false"}
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
                             />
+                            {errors.brand && (
+                              <p className="text-red-500" role="alert">
+                                {errors.brand.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <input
                               type="text"
                               placeholder="Description"
-                              {...register("description", { required: true })}
+                              {...register("description", {
+                                required: "Description is required",
+                              })}
+                              aria-invalid={
+                                errors.description ? "true" : "false"
+                              }
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
                             />
+                            {errors.description && (
+                              <p className="text-red-500" role="alert">
+                                {errors.description.message}
+                              </p>
+                            )}
                           </div>
                         </div>
 
@@ -165,17 +224,37 @@ const AddProduct = () => {
                             <input
                               type="number"
                               placeholder="Quantity"
-                              {...register("stockQuantity", { required: true })}
+                              {...register("stockQuantity", {
+                                required: "Stock-Quantity is required",
+                              })}
+                              aria-invalid={
+                                errors.stockQuantity ? "true" : "false"
+                              }
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
                             />
+                            {errors.stockQuantity && (
+                              <p className="text-red-500" role="alert">
+                                {errors.stockQuantity.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <input
                               type="text"
                               placeholder="Availability"
-                              {...register("availability", { required: true })}
+                              {...register("availability", {
+                                required: "Availability is required",
+                              })}
+                              aria-invalid={
+                                errors.availability ? "true" : "false"
+                              }
                               className="border-b bg-transparent focus:outline-none w-full  h-12 px-10"
                             />
+                            {errors.availability && (
+                              <p className="text-red-500" role="alert">
+                                {errors.availability.message}
+                              </p>
+                            )}
                           </div>
                         </div>
                       </div>

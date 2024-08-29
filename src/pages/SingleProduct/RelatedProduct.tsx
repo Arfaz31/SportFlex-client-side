@@ -124,10 +124,10 @@ const RelatedProduct = () => {
                         </CarouselItem>
                       ))}
               </CarouselContent>
-              <CarouselPrevious className="absolute md:left-[25%] left-[12%] xl:-top-16 -top-14 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
+              <CarouselPrevious className="absolute md:left-[25%] left-[0%] xl:-top-16 -top-14 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
                 &#9664;
               </CarouselPrevious>
-              <CarouselNext className="absolute md:right-[25%] right-[12%] xl:-top-16 -top-14 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
+              <CarouselNext className="absolute md:right-[25%] right-[0%] xl:-top-16 -top-14 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition-opacity duration-300">
                 &#9654;
               </CarouselNext>
             </Carousel>

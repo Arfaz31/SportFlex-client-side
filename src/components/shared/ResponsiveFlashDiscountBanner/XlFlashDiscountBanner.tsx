@@ -9,34 +9,46 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Button } from "@/components/ui/button";
 import Container from "../Container";
-import CountDown from "../CountDown";
+
+import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { Link } from "react-router-dom";
+import { TCatagory } from "@/type/Type";
+import useCountDown from "../CountDown";
 
 const XlFlashDiscountBanner = () => {
+  const { data: catagoryData } = useGetAllCatagoryQuery(undefined);
   const endDate = `2024-12-30T00:00:00`;
-  const { days, hours, minutes, seconds } = CountDown(endDate);
+  const { days, hours, minutes, seconds } = useCountDown(endDate);
 
   return (
     <Container>
       <div className="xl:h-[460px] h-[410px] bg-[#f5f5f5] relative">
         <div className="grid grid-cols-12 relative">
           <div className="col-span-6  group overflow-hidden w-full h-full">
-            <img
-              className="group-hover:scale-110 transition-transform duration-500 ease-in-out object-cover object-center"
-              src={bike}
-              alt=""
-            />
-            <div className="absolute xl:top-24 top-16 xl:left-14  left-12 xl:space-y-3 space-y-2">
-              <p className="xl:text-2xl text-xl font-bold text-white drop-shadow-XL">
-                PRODUCT OF TRENDING
-              </p>
-              <h1 className="text-white font-bold xl:text-4xl text-3xl max-w-[15ch] drop-shadow-xl pb-4">
-                MOUNTAIN BIKE SALE 50%
-              </h1>
-              <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  text-lg   text-white   w-[120px] h-[50px]">
-                SHOP NOW
-              </Button>
-            </div>
+            {catagoryData?.data?.slice(8, 9).map((cat: TCatagory) => (
+              <Link to={`/products?categoryId=${cat._id}`} key={cat._id}>
+                <div>
+                  <img
+                    className="group-hover:scale-110 transition-transform duration-500 ease-in-out object-cover object-center"
+                    src={bike}
+                    alt=""
+                  />
+                  <div className="absolute xl:top-24 top-16 xl:left-14  left-12 xl:space-y-3 space-y-2">
+                    <p className="xl:text-2xl text-xl font-bold text-white drop-shadow-XL">
+                      PRODUCT OF TRENDING
+                    </p>
+                    <h1 className="text-white font-bold xl:text-4xl text-3xl max-w-[15ch] drop-shadow-xl pb-4">
+                      MOUNTAIN BIKE SALE 50%
+                    </h1>
+                    <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  text-lg   text-white   w-[120px] h-[50px]">
+                      SHOP NOW
+                    </Button>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
+
           <div className="col-span-6 relative group overflow-hidden w-full h-full">
             <Swiper
               spaceBetween={30}

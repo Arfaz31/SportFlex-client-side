@@ -20,3 +20,18 @@ export type TInputs = {
   stockQuantity: number;
   availability: boolean;
 };
+export type TProducts = {
+  _id: string;
+  productName: string;
+  image: string[];
+  category: TCatagory;
+  price: number;
+  brand: string;
+  description: string;
+  size?: string[];
+  color?: string[];
+  discount?: number;
+  discountEndingTime?: string;
+  stockQuantity: number;
+  availability: boolean;
+};

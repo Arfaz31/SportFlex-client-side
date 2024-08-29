@@ -2,12 +2,18 @@ import { Button } from "../ui/button";
 import { Search } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import Container from "./Container";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { Link, useNavigate } from "react-router-dom";
+import { TCatagory } from "@/type/Type";
 
 const SearchModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 260) {
@@ -22,6 +28,15 @@ const SearchModal = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const { data: categories } = useGetAllCatagoryQuery(undefined);
+
+  const handleSearchClick = () => {
+    if (searchInputRef.current) {
+      navigate(`/products?searchTerm=${searchInputRef.current.value}`);
+      setIsModalOpen(false); // Close the modal after navigating
+    }
+  };
   return (
     <div>
       <div
@@ -48,6 +63,7 @@ const SearchModal = () => {
             <div className="relative w-full mt-3">
               <input
                 type="text"
+                ref={searchInputRef}
                 className="w-full p-3 border border-gray-300 rounded text-[#222] focus:placeholder-transparent"
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
@@ -65,9 +81,7 @@ const SearchModal = () => {
               )}
               <div
                 className="absolute top-0 right-0 p-3 cursor-pointer"
-                onClick={() => {
-                  setIsModalOpen(false);
-                }}
+                onClick={handleSearchClick}
               >
                 <p className="hover:text-[#10798b] font-semibold text-[#222]">
                   SEARCH
@@ -78,16 +92,14 @@ const SearchModal = () => {
             <p className="text-[#222] text-lg font-semibold xl:mt-20 mt-12">
               HOT SEARCHES :
             </p>
-            <div className="flex gap-2">
-              <Button className="bg-[#10798b] mt-4 text-xs text-white w-[100px] h-[43px]">
-                CRICKET BAT
-              </Button>
-              <Button className="bg-[#10798b] mt-4 text-xs text-white w-[100px] h-[43px]">
-                FOOTBALL
-              </Button>
-              <Button className="bg-[#10798b] mt-4 text-xs text-white w-[100px] h-[43px]">
-                VOLLEYBALL
-              </Button>
+            <div className="flex gap-3">
+              {categories?.data?.slice(0, 3).map((cat: TCatagory) => (
+                <Link to={`/products?categoryId=${cat._id}`} key={cat._id}>
+                  <Button className="cursor-pointer bg-gradient-to-r from-[#00cde5] to-[#10798b] mt-4 text-sm text-white w-[100px] h-[43px]">
+                    {cat.catagoryName}
+                  </Button>
+                </Link>
+              ))}
             </div>
           </Container>
         </div>
