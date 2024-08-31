@@ -6,7 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
 import { TCatagory } from "@/type/Type";
 import { Trash2 } from "lucide-react";
 import Lottie from "lottie-react";

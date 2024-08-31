@@ -10,7 +10,7 @@ import {
 import { Heart, ShoppingCart, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { useGetFlashDealProductsQuery } from "@/redux/features/product/productApi";
+import { useGetFlashDealProductsQuery } from "@/redux/api/product/productApi";
 import { TInputs } from "@/type/Type";
 import FlashCountDownDiv from "./FlashCountDownDiv";
 const FlashDeals = () => {

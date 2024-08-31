@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useAddCatagoryMutation } from "@/redux/features/Catagory/CatagoryApi";
+import { useAddCatagoryMutation } from "@/redux/api/Catagory/CatagoryApi";
 
 import { TCatagory } from "@/type/Type";
 import { SubmitHandler, useForm } from "react-hook-form";

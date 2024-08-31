@@ -3,6 +3,7 @@ import DashboardLayout from "@/components/layout/DashboardLayout/DashboardLayout
 import About from "@/pages/About/About";
 import Products from "@/pages/AllProducts/Products";
 import Blog from "@/pages/Blog/Blog";
+import Cart from "@/pages/Cart/Cart";
 import Contact from "@/pages/Contact Us/Contact";
 import AddBlogs from "@/pages/Dashboard/Admin/AddBlogs";
 import AddProduct from "@/pages/Dashboard/Admin/AddProduct";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "singleProduct/:id",
         element: <SingleProduct />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

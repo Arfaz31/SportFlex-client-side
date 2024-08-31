@@ -10,10 +10,10 @@ import { Link, useSearchParams } from "react-router-dom";
 import sports from "@/assets/sports.jpg";
 import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
-import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
+import { useGetAllProductsQuery } from "@/redux/api/product/productApi";
 import { TCatagory, TInputs } from "@/type/Type";
 import LoadingPage from "@/components/shared/LoadingPage";
-import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
 import {
   Pagination,
   PaginationContent,
@@ -22,6 +22,8 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useAppDispatch } from "@/redux/hook";
+import { addToCart } from "@/redux/features/cartSlice";
 const options: Array<{ value: string; label: string }> = [
   { value: "price-low-high", label: "Lowest to Highest" },
   { value: "price-high-low", label: "Highest to Lowest" },
@@ -63,6 +65,8 @@ const Products = () => {
   });
 
   const { data: categories } = useGetAllCatagoryQuery(undefined);
+
+  const dispatch = useAppDispatch();
 
   if (isLoading) {
     return <LoadingPage />;
@@ -558,7 +562,10 @@ const Products = () => {
                                       View Details
                                     </Button>
                                   </Link>
-                                  <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                  <div
+                                    className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2"
+                                    onClick={() => dispatch(addToCart(item))}
+                                  >
                                     <ShoppingCart className="w-8   h-8" />
                                   </div>
                                 </div>
@@ -634,7 +641,10 @@ const Products = () => {
                                         View Details
                                       </Button>
                                     </Link>
-                                    <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                    <div
+                                      className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2"
+                                      onClick={() => dispatch(addToCart(item))}
+                                    >
                                       <ShoppingCart className="w-8   h-8" />
                                     </div>
                                   </div>

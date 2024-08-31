@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Container from "@/components/shared/Container";
-import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
 import { TCatagory } from "@/type/Type";
 import { Link } from "react-router-dom";
 

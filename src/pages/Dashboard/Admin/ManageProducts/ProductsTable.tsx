@@ -10,7 +10,7 @@ import { TProducts } from "@/type/Type";
 import { Trash2 } from "lucide-react";
 import Lottie from "lottie-react";
 import spinner from "@/assets/pIR8Sd9Ib1.json";
-import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
+import { useGetAllProductsQuery } from "@/redux/api/product/productApi";
 import { useState } from "react";
 import {
   Pagination,

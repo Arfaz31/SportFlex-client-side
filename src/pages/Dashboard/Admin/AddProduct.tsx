@@ -1,5 +1,5 @@
-import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
-import { useAddProductPostMutation } from "@/redux/features/product/productApi";
+import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
+import { useAddProductPostMutation } from "@/redux/api/product/productApi";
 import { TCatagory, TInputs } from "@/type/Type";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";

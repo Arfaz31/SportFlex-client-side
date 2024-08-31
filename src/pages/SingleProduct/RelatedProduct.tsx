@@ -11,7 +11,7 @@ import Lottie from "lottie-react";
 import spinner from "@/assets/pIR8Sd9Ib1.json";
 import { Star, Heart, ShoppingCart } from "lucide-react";
 import Container from "@/components/shared/Container";
-import { useGetRelatedProductsQuery } from "@/redux/features/product/productApi";
+import { useGetRelatedProductsQuery } from "@/redux/api/product/productApi";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 const RelatedProduct = () => {

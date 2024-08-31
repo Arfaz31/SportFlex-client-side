@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { Heart, ShoppingCart } from "lucide-react";
 import SearchModal from "@/components/shared/SearchModal";
 import logo from "@/assets/Sports.png";
-
+import { useAppSelector } from "@/redux/hook";
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const products = useAppSelector((store) => store.cart.products);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 260) {
@@ -135,15 +136,22 @@ const MobileNav = () => {
           </Link>
         </div>
 
-        <div className=" relative flex">
+        <div className=" relative flex pr-2">
           <div className="xl:hidden lg:block hidden">
             <div className=" w-10 h-10 cursor-pointer hover:bg-[#00cde5] rounded-full transition-all  duration-500 hover:scale-110 ease-in-out flex items-center justify-center p-2">
               <Heart className="w-8 h-8" />
             </div>
           </div>
 
-          <div className="w-[35px] h-[35px] md:w-[40px] md:h-[40px] cursor-pointer hover:bg-[#00cde5] rounded-full transition-all  duration-500 hover:scale-110 ease-in-out flex items-center justify-center p-2">
-            <ShoppingCart className="w-6 h-6 md:w-8 md:h-8" />
+          <div>
+            <Link to={"/cart"}>
+              <div className="w-[35px] h-[35px] md:w-9 md:h-9 cursor-pointer hover:bg-[#00cde5] rounded-full transition-all duration-500 hover:scale-110 ease-in-out flex items-center justify-center relative group">
+                <ShoppingCart className="w-6 h-6  text-white transition-colors duration-500" />
+                <span className="rounded-full absolute top-0 right-0 translate-x-[30%] translate-y-[-30%] bg-[#10798b] text-white text-xs min-w-[18px] min-h-[18px] px-[3px] flex items-center justify-center group-hover:bg-white group-hover:text-[#10798b] transition-colors duration-500">
+                  {products.length}
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
 import gymGirl from "../../assets/card/gym.jpg";
 import shoe from "../../assets/card/shoes3.jpg";
 import Container from "../shared/Container";

@@ -5,9 +5,9 @@ import { Star, Heart, ShoppingCart } from "lucide-react";
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
 import { useEffect, useState } from "react";
-import { useGetAllProductsQuery } from "@/redux/features/product/productApi";
+import { useGetAllProductsQuery } from "@/redux/api/product/productApi";
 import { TCatagory, TInputs } from "@/type/Type";
 const MdNewProduct = () => {
   const { data: categoryData } = useGetAllCatagoryQuery(undefined);

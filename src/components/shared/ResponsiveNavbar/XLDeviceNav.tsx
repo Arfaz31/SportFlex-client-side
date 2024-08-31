@@ -7,8 +7,10 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import SearchModal from "../SearchModal";
+import { useAppSelector } from "@/redux/hook";
 
 const XLDeviceNav = () => {
+  const products = useAppSelector((store) => store.cart.products);
   const Links = [
     { name: "HOME", link: "/" },
     { name: "PRODUCTS", link: "/products" },
@@ -72,8 +74,15 @@ const XLDeviceNav = () => {
           <div className="w-10 h-10 cursor-pointer hover:bg-[#00cde5] rounded-full transition-all  duration-500 hover:scale-110 ease-in-out flex items-center justify-center p-2">
             <Heart className="w-8 h-8" />
           </div>
-          <div className="w-10 h-10 cursor-pointer hover:bg-[#00cde5] rounded-full transition-all  duration-500 hover:scale-110 ease-in-out flex items-center justify-center p-2">
-            <ShoppingCart className="w-8 h-8" />
+          <div>
+            <Link to={"/cart"}>
+              <div className="w-10 h-10 cursor-pointer hover:bg-[#00cde5] rounded-full transition-all duration-500 hover:scale-110 ease-in-out flex items-center justify-center p-2 relative group">
+                <ShoppingCart className="w-8 h-8 text-white transition-colors duration-500" />
+                <span className="rounded-full absolute top-[-5px] right-[-5px] bg-[#10798b] text-white text-xs w-5 h-5 flex items-center justify-center group-hover:bg-white group-hover:text-[#10798b] transition-colors duration-500">
+                  {products.length}
+                </span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import Container from "./Container";
 import { useEffect, useRef, useState } from "react";
-import { useGetAllCatagoryQuery } from "@/redux/features/Catagory/CatagoryApi";
+import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
 import { Link, useNavigate } from "react-router-dom";
 import { TCatagory } from "@/type/Type";
 

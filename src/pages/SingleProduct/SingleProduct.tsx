@@ -1,4 +1,4 @@
-import { useGetSingleProductQuery } from "@/redux/features/product/productApi";
+import { useGetSingleProductQuery } from "@/redux/api/product/productApi";
 import description from "@/assets/description.jpg";
 import Container from "@/components/shared/Container";
 import { CircleHelp, MessageSquareText, Share2, Star } from "lucide-react";
@@ -17,6 +17,8 @@ import { Textarea } from "@/components/ui/textarea";
 import ShareModal from "./ShareModal";
 import AskQuestion from "./AskQuestion";
 import RelatedProduct from "./RelatedProduct";
+import { useAppDispatch } from "@/redux/hook";
+import { addToCart } from "@/redux/features/cartSlice";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -24,7 +26,7 @@ const SingleProduct = () => {
   const [activeTab, setActiveTab] = useState("description");
   const [selectedImage, setSelectedImage] = useState<string>("");
   const { data, isLoading } = useGetSingleProductQuery(id);
-
+  const dispatch = useAppDispatch();
   const item = data?.data;
   useEffect(() => {
     // Reset the selected image whenever the id changes
@@ -180,7 +182,10 @@ const SingleProduct = () => {
               </div>
 
               <div className="flex gap-8 items-center mt-8">
-                <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  text-white ">
+                <Button
+                  className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  text-white "
+                  onClick={() => dispatch(addToCart(item))}
+                >
                   ADD TO CART
                 </Button>
                 <Link to={`/checkout/${item?._id}`}>
