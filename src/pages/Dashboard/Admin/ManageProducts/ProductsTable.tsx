@@ -10,7 +10,10 @@ import { TProducts } from "@/type/Type";
 import { Trash2 } from "lucide-react";
 import Lottie from "lottie-react";
 import spinner from "@/assets/pIR8Sd9Ib1.json";
-import { useGetAllProductsQuery } from "@/redux/api/product/productApi";
+import {
+  useDeleteProductMutation,
+  useGetAllProductsQuery,
+} from "@/redux/api/product/productApi";
 import { useState } from "react";
 import {
   Pagination,
@@ -21,18 +24,28 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import UpdateProductModal from "./Update Product/UpdateProductModal";
+import { toast } from "sonner";
 const ProductsTable = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { data, isLoading } = useGetAllProductsQuery({ page: currentPage });
-
+  const [deleteProduct] = useDeleteProductMutation();
   const totalPages = data?.data?.totalPages || 1;
   const handlePageChange = (newPage: number) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setCurrentPage(newPage);
     }
   };
-  const handleDelete = (_id: string) => {
-    console.log(_id);
+  const handleDelete = async (_id: string) => {
+    try {
+      const result = await deleteProduct(_id);
+
+      if (result) {
+        toast.success("Product is deleted successfully");
+      }
+    } catch (err) {
+      toast.error("Failed to delete product");
+      console.log(err);
+    }
   };
   return (
     <div className="overflow-x-auto">
