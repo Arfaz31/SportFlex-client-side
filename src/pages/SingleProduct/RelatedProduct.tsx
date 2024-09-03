@@ -21,7 +21,6 @@ const RelatedProduct = () => {
     isLoading: isRelatedProductLoading,
     error,
   } = useGetRelatedProductsQuery(id);
-  console.log(relatedProductData);
 
   if (error) {
     console.log(error);

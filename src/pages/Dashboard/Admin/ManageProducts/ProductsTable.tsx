@@ -20,6 +20,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import UpdateProductModal from "./Update Product/UpdateProductModal";
 const ProductsTable = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { data, isLoading } = useGetAllProductsQuery({ page: currentPage });
@@ -93,7 +94,8 @@ const ProductsTable = () => {
                   {item?.availability ? "In Stock" : "Out of Stock"}
                 </TableCell>
 
-                <TableCell className="flex items-center gap-2">
+                <TableCell className="flex items-center justify-center gap-2">
+                  <UpdateProductModal _id={item._id} />
                   <button onClick={() => handleDelete(item?._id)}>
                     <div className="bg-red-500 text-white p-1 rounded-lg">
                       <Trash2 />

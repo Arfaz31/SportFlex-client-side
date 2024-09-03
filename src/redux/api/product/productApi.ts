@@ -91,6 +91,16 @@ const productApi = baseApi.injectEndpoints({
       }),
       providesTags: ["products"],
     }),
+    updateProduct: builder.mutation({
+      query: (options) => {
+        return {
+          url: `/product/${options.id}`,
+          method: "PUT",
+          body: options.data,
+        };
+      },
+      invalidatesTags: ["products"],
+    }),
   }),
 });
 
@@ -100,4 +110,5 @@ export const {
   useGetSingleProductQuery,
   useGetRelatedProductsQuery,
   useGetFlashDealProductsQuery,
+  useUpdateProductMutation,
 } = productApi;

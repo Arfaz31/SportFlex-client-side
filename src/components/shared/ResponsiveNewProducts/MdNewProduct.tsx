@@ -9,11 +9,14 @@ import { useGetAllCatagoryQuery } from "@/redux/api/Catagory/CatagoryApi";
 import { useEffect, useState } from "react";
 import { useGetAllProductsQuery } from "@/redux/api/product/productApi";
 import { TCatagory, TInputs } from "@/type/Type";
+import { useAppDispatch } from "@/redux/hook";
+import { addToCart } from "@/redux/features/cartSlice";
 const MdNewProduct = () => {
   const { data: categoryData } = useGetAllCatagoryQuery(undefined);
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
     undefined
   );
+  const dispatch = useAppDispatch();
   useEffect(() => {
     if (categoryData?.data.length >= 3) {
       setSelectedCategory(categoryData.data[2]._id);
@@ -160,7 +163,10 @@ const MdNewProduct = () => {
                                       View Details
                                     </Button>
                                   </Link>
-                                  <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all  duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                  <div
+                                    className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all  duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2"
+                                    onClick={() => dispatch(addToCart(item))}
+                                  >
                                     <ShoppingCart className="w-8   h-8" />
                                   </div>
                                 </div>

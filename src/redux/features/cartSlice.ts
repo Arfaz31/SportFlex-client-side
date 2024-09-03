@@ -15,11 +15,19 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const isExist = state.products.find(
+      const existingProduct = state.products.find(
         (product: any) => product._id === action.payload._id
       );
-      if (!isExist) {
-        state.products.push({ ...action.payload, quantity: 1 });
+      if (existingProduct) {
+        // Increase the quantity of the existing product
+        existingProduct.quantity += action.payload.quantity || 1;
+      } else {
+        // Add the new product with a default quantity of 1
+        state.products.push({
+          ...action.payload,
+          quantity: action.payload.quantity || 1,
+          selectedSize: action.payload.selectedSize || "",
+        });
       }
       state.selectedItems = selectSelectedItems(state);
       state.totalPrice = selectTotalPrice(state);

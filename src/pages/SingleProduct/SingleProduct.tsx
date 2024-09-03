@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetSingleProductQuery } from "@/redux/api/product/productApi";
 import description from "@/assets/description.jpg";
 import Container from "@/components/shared/Container";
@@ -25,6 +26,7 @@ const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState("description");
   const [selectedImage, setSelectedImage] = useState<string>("");
+  const [selectSize, setSelectSize] = useState<string | undefined>(undefined);
   const { data, isLoading } = useGetSingleProductQuery(id);
   const dispatch = useAppDispatch();
   const item = data?.data;
@@ -45,6 +47,34 @@ const SingleProduct = () => {
       setQuantity((pv) => pv - 1);
     }
   };
+  const handleSizeSelect = (size: string) => {
+    setSelectSize(size);
+  };
+
+  const handleCart = (item: any) => {
+    const {
+      _id,
+      productName,
+      image,
+      price,
+      brand,
+      stockQuantity,
+      availability,
+    } = item;
+    const productData = {
+      _id,
+      productName,
+      image,
+      price,
+      brand,
+      stockQuantity,
+      availability,
+      selectedSize: selectSize || undefined,
+      quantity: quantity,
+    };
+
+    dispatch(addToCart(productData));
+  };
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -52,7 +82,8 @@ const SingleProduct = () => {
   if (isLoading) {
     return <LoadingPage />;
   }
-
+  // Check if the add to cart button should be disabled
+  const isAddToCartDisabled = quantity >= (item?.stockQuantity || 0);
   return (
     <div>
       <div className="relative">
@@ -145,7 +176,11 @@ const SingleProduct = () => {
               </p>
               <p className="lg:text-lg text-base pt-3 pb-3">
                 <span className="font-semibold">Availability:</span>{" "}
-                {item?.availability ? "In Stock" : "Out of Stock"}
+                {item?.availability ? (
+                  "In Stock"
+                ) : (
+                  <span className="text-red-600">Out of Stock</span>
+                )}
               </p>
               {item?.size &&
                 item?.size.filter((sz: string) => sz.trim().length > 0).length >
@@ -157,7 +192,12 @@ const SingleProduct = () => {
                       .map((sz: string, index: number) => (
                         <p
                           key={index}
-                          className="bg-transparent p-2 text-black lg:text-lg text-base border border-[#797f89] border-1 hover:bg-gradient-to-r from-[#00cde5] to-[#10798b] hover:border-none hover:text-white cursor-pointer"
+                          className={`bg-transparent p-2 text-black lg:text-lg text-base border border-[#797f89] border-1 cursor-pointer ${
+                            selectSize === sz
+                              ? "bg-gradient-to-r from-[#00cde5] to-[#10798b] text-white" // Apply gradient when selected
+                              : "hover:bg-gradient-to-r from-[#00cde5] to-[#10798b] hover:border-none hover:text-white" // Hover effect
+                          }`}
+                          onClick={() => handleSizeSelect(sz)}
                         >
                           {sz}
                         </p>
@@ -176,6 +216,7 @@ const SingleProduct = () => {
                 <Button
                   className="bg-transparent text-black text-xl hover:bg-gradient-to-r from-[#00cde5] to-[#10798b] hover:border-none hover:text-white cursor-pointer"
                   onClick={() => setQuantity((pv) => pv + 1)}
+                  disabled={isAddToCartDisabled}
                 >
                   +
                 </Button>
@@ -184,7 +225,8 @@ const SingleProduct = () => {
               <div className="flex gap-8 items-center mt-8">
                 <Button
                   className="bg-gradient-to-r from-[#00cde5] to-[#10798b]  text-white "
-                  onClick={() => dispatch(addToCart(item))}
+                  onClick={() => handleCart(item)}
+                  disabled={quantity <= 0 || item?.stockQuantity === 0}
                 >
                   ADD TO CART
                 </Button>

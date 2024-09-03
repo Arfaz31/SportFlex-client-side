@@ -11,24 +11,36 @@ const CartDetails = ({ product }: any) => {
   };
 
   return (
-    <div className="flex items-center justify-between space-x-4 border border-gray-300 rounded-lg p-4 bg-white shadow-md transition-transform transform hover:scale-105 hover:shadow-lg w-full max-w-md mx-auto duration-500">
-      <div>
+    <div className="grid grid-cols-12 border border-gray-300 rounded-lg p-4 bg-white shadow-md transition-transform transform hover:scale-105 hover:shadow-lg w-full max-w-md mx-auto duration-500 gap-6">
+      <div className="col-span-4 flex items-center justify-center">
         <img
           src={product.image[0]}
           alt={product.productName}
-          className="w-24 h-24 object-cover rounded-md"
+          className="w-full md:h-28 h-24 object-cover rounded-md"
         />
       </div>
-      <div>
+      <div className="col-span-8">
         <h3 className="md:text-lg  text-base font-bold pb-2">
           {product.productName}
         </h3>
-        <p className="md:text-base text-sm  font-medium text-gray-600 pb-2">
-          ${product.price}
-        </p>
-        <p className="md:text-base text-sm font-medium text-gray-600 pb-5">
-          Quantity: {product.quantity}
-        </p>
+        <div className="flex justify-between items-center">
+          <div>
+            <p className="md:text-base text-sm  font-medium text-gray-600 pb-2">
+              ${product.price}
+            </p>
+            <p className="md:text-base text-sm font-medium text-gray-600 pb-5">
+              Quantity: {product.quantity}
+            </p>
+          </div>
+          <div>
+            <button
+              onClick={() => dispatch(removeProduct(product._id))}
+              className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
+            >
+              <Trash2 size={18} />
+            </button>
+          </div>
+        </div>
 
         <div className="flex items-center space-x-2">
           <button
@@ -45,15 +57,6 @@ const CartDetails = ({ product }: any) => {
             <Plus size={18} />
           </button>
         </div>
-      </div>
-
-      <div>
-        <button
-          onClick={() => dispatch(removeProduct(product._id))}
-          className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700"
-        >
-          <Trash2 size={18} />
-        </button>
       </div>
     </div>
   );

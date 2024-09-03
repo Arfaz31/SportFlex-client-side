@@ -12,8 +12,10 @@ import Catagories from "@/pages/Dashboard/Admin/Catagories/Catagories";
 
 import Dashboard from "@/pages/Dashboard/Admin/Dashboard";
 import ManageProduct from "@/pages/Dashboard/Admin/ManageProducts/ManageProduct";
-import Orders from "@/pages/Dashboard/Admin/Orders";
+import MyOrder from "@/pages/Dashboard/Admin/MyOrder";
+import Orders from "@/pages/Dashboard/Admin/AllOrder/Orders";
 import Home from "@/pages/Home/Home";
+import Payment from "@/pages/Payment/Payment";
 import SingleProduct from "@/pages/SingleProduct/SingleProduct";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -50,6 +52,10 @@ const router = createBrowserRouter([
         path: "cart",
         element: <Cart />,
       },
+      {
+        path: "payment",
+        element: <Payment />,
+      },
     ],
   },
   {
@@ -75,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: "orders",
         element: <Orders />,
+      },
+      {
+        path: "my-orders",
+        element: <MyOrder />,
       },
       {
         path: "create-blogs",

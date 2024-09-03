@@ -5,6 +5,7 @@ import {
   MessageSquarePlus,
   Shapes,
   ShoppingBag,
+  ShoppingCart,
   SquarePen,
   SquarePlus,
 } from "lucide-react";
@@ -113,7 +114,22 @@ const Sidebar = () => {
                   <span>
                     <ShoppingBag />
                   </span>
-                  Orders
+                  All Orders
+                </li>
+              </Link>
+              <Link to="/admin-dashboard/my-orders">
+                <li
+                  onClick={() => handleLinkClick("/admin-dashboard/my-orders")}
+                  className={`rounded-md text-sm flex items-center gap-2 ${
+                    activeLink === "/admin-dashboard/my-orders"
+                      ? " text-[#e4e4e7]"
+                      : "text-zinc-400"
+                  }`}
+                >
+                  <span>
+                    <ShoppingCart />
+                  </span>
+                  My Orders
                 </li>
               </Link>
 

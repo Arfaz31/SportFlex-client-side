@@ -35,3 +35,40 @@ export type TProducts = {
   stockQuantity: number;
   availability: boolean;
 };
+
+export type TShippingOrder = {
+  productId: string;
+  quantity: number;
+};
+
+export type TName = {
+  firstName: string;
+  lastName: string;
+};
+
+export type TOrder = {
+  _id: string;
+  name: TName;
+  email: string;
+  phone: string;
+  address: string;
+  totalPrice: number;
+  order: TShippingOrder[];
+  notes?: string;
+};
+
+export type TShippingOrderInfo = {
+  productId: TProducts;
+  quantity: number;
+  selectedSize: string;
+};
+export type TGetOrder = {
+  _id: string;
+  name: TName;
+  email: string;
+  phone: string;
+  address: string;
+  totalPrice: number;
+  order: TShippingOrderInfo[];
+  notes?: string;
+};

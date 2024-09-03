@@ -51,8 +51,22 @@ const FeaturedProductCard = ({ item }: { item: TInputs }) => {
               </Button>
             </Link>
             <div
-              className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2"
-              onClick={() => handleAddToCart(item)}
+              className={`md:w-10 w-9 md:h-10 h-9 cursor-pointer rounded-full transition-all duration-500 ease-in-out flex items-center justify-center p-2 
+    ${
+      item?.stockQuantity === 0 || item?.availability === false
+        ? "cursor-not-allowed bg-gray-300"
+        : "hover:text-white hover:bg-[#00cde5] md:hover:scale-110 hover:scale-90"
+    }`}
+              onClick={() => {
+                if (item?.stockQuantity > 0 && item?.availability) {
+                  handleAddToCart(item);
+                }
+              }}
+              title={
+                item?.stockQuantity === 0 || item?.availability === false
+                  ? "Item is StockOut"
+                  : ""
+              }
             >
               <ShoppingCart className="w-8 h-8" />
             </div>

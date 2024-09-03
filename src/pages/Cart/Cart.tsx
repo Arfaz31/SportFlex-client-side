@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import cart from "@/assets/cart.jpg";
 import Container from "@/components/shared/Container";
 import { useAppSelector } from "@/redux/hook";
@@ -29,9 +30,8 @@ const Cart = () => {
               Your Total Cart Product
             </h2>
             {products.length ? (
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               products.map((product: any) => (
-                <CartDetails key={product.id} product={product} />
+                <CartDetails key={product._id} product={product} />
               ))
             ) : (
               <p className="text-xl text-red-500">
@@ -39,6 +39,7 @@ const Cart = () => {
               </p>
             )}
           </div>
+
           <OrderSummary />
         </div>
       </Container>
