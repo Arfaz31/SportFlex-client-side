@@ -14,9 +14,12 @@ import { useCreateOrderMutation } from "@/redux/api/Order/OrderApi";
 import { clearCart } from "@/redux/features/cartSlice";
 import Lottie from "lottie-react";
 import spinner from "@/assets/pIR8Sd9Ib1.json";
+import { useNavigate } from "react-router-dom";
+
 const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const navigate = useNavigate();
   const [addOrder, { error, isLoading }] = useCreateOrderMutation();
   const dispatch = useAppDispatch();
   const handlePaymentMethod = (value: string) => {
@@ -54,7 +57,6 @@ const Payment = () => {
         selectedSize: product.selectedSize,
       })),
     };
-    console.log(orderData);
 
     try {
       const res = await addOrder(orderData).unwrap();
@@ -63,6 +65,7 @@ const Payment = () => {
         toast.success("Your order has been placed successfully");
         dispatch(clearCart());
         reset();
+        navigate("/success");
       }
     } catch (error) {
       console.error("Order creation error:", error);

@@ -18,6 +18,7 @@ import Home from "@/pages/Home/Home";
 import Payment from "@/pages/Payment/Payment";
 import SingleProduct from "@/pages/SingleProduct/SingleProduct";
 import { createBrowserRouter } from "react-router-dom";
+import CheckoutSuccess from "@/pages/Success page/CheckoutSuccess";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "payment",
         element: <Payment />,
+      },
+      {
+        path: "success",
+        element: <CheckoutSuccess />,
       },
     ],
   },
