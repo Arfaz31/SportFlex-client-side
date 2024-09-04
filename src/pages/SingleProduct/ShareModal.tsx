@@ -18,7 +18,9 @@ const ShareModal = () => {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <p className="hover:text-[#00cde5] cursor-pointer">Share</p>
+          <p className="hover:text-[#00cde5] sm:text-base text-sm cursor-pointer">
+            Share
+          </p>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <p className="text-lg font-bold pb-2">Copy Link</p>

@@ -54,7 +54,7 @@ const SearchModal = () => {
         onClick={() => setIsModalOpen(false)}
       >
         <div
-          className={`fixed z-50 top-0 left-0 w-full h-[300px] bg-white p-6  shadow-lg transition-transform duration-500 transform ${
+          className={`fixed z-50 top-0 left-0 w-full h-[300px] bg-white px-2 py-6 shadow-lg transition-transform duration-500 transform ${
             isModalOpen ? "translate-y-0" : "-translate-y-full"
           }`}
           onClick={(e) => e.stopPropagation()}

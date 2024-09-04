@@ -27,7 +27,7 @@ const Contact = () => {
           <span className="bg-[#00cde5] w-16 h-1"></span>
         </div>
       </div>
-      <Container className="px-6">
+      <Container className="px-4">
         <h1 className="xl:text-4xl lg:text-3xl text-2xl font-semibold mt-20 mb-4">
           Get In Touch
         </h1>
@@ -54,7 +54,7 @@ const Contact = () => {
               <p>sportFlex@gmail.com</p>
             </div>
             <div className=" ">
-              <h2 className="text-xl font-semibold">Follow Us</h2>
+              <h2 className="text-xl font-semibold pb-2">Follow Us</h2>
               <div className="flex space-x-3 cursor-pointer pt-1">
                 <img className="xl:w-8 w-6" src={fb} alt="" />
                 <img className="xl:w-8 w-6" src={insta} alt="" />
@@ -64,13 +64,13 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-white lg:col-span-7 row-span-12 shadow-2xl rounded-xl px-8 lg:pt-14 pt-6">
+          <div className="bg-white lg:col-span-7 row-span-12 shadow-2xl rounded-xl sm:px-8 px-3 lg:pt-14 pt-6">
             <div className="flex gap-3 pb-6">
-              <Input type="text" placeholder="Your First Name" />
-              <Input type="text" placeholder="Your Last Name" />
+              <Input type="text" placeholder="First Name" />
+              <Input type="text" placeholder="Last Name" />
             </div>
             <div className="flex gap-3 pb-6">
-              <Input type="text" placeholder="Phone Number" />
+              <Input type="text" placeholder="Phone" />
               <Input type="email" placeholder="Email" />
             </div>
             <Textarea placeholder="Type your message here." />

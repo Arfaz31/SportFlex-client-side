@@ -97,7 +97,7 @@ const Payment = () => {
         </div>
       </div>
       <Container className="mt-16 mx-auto xl:px-0 lg:px-5 px-3">
-        <div className="flex lg:flex-row flex-col-reverse justify-center xl:gap-32 lg:gap-20 gap-14">
+        <div className="flex lg:flex-row flex-col justify-center xl:gap-32 lg:gap-20 gap-14">
           <div className=" border border-gray-500 p-8 w-full h-[600px] ">
             <h2 className="text-xl font-bold pb-8">SHIPPING INFORMATION</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -206,13 +206,15 @@ const Payment = () => {
                   </div>
                   {products.map((product: any) => (
                     <div key={product._id}>
-                      <div className="flex justify-between py-5">
-                        <div className="flex gap-3">
-                          <p>{product.productName}</p>
-                          <p>X</p>
-                          <p>{product.quantity}</p>
+                      <div className="grid grid-cols-2 py-5">
+                        <div className="col-span-1 ">
+                          <div className="flex gap-2">
+                            <p>{product.productName}</p>
+                            <p>X</p>
+                            <p>{product.quantity}</p>
+                          </div>
                         </div>
-                        <div>
+                        <div className="col-span-1 flex  justify-end">
                           <p>
                             $ {(product.quantity * product.price).toFixed(2)}
                           </p>

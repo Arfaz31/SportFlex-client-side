@@ -62,7 +62,7 @@ const Testimonials = () => {
     },
   ];
   return (
-    <div className=" mb-28 relative">
+    <div className=" mb-28 relative overflow-x-hidden">
       <img
         className="w-full h-[620px] object-cover object-center"
         src={testimonalBanner}
@@ -103,7 +103,7 @@ const Testimonials = () => {
                       key={member.id}
                       className="xl:basis-1/2 xl:h-[360px] xl:w-[220px] lg:h-[330px] lg:w-[140px] md:h-[300px] md:w-[160px] h-[360px] w-[92px] "
                     >
-                      <div className="p-4">
+                      <div className="p-4 ">
                         <Card className="border-none">
                           <CardContent className="relative group aspect-square p-8">
                             <div className="absolute inset-0 xl:left-[350px] lg:left-[470px] md:left-[550px] left-[300px] flex ">

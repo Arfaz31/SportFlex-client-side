@@ -41,8 +41,8 @@ const AskQuestion = () => {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle className="text-xl font-bold">
-              ASK A QUESTION
+            <DialogTitle>
+              <p className="sm:text-base text-sm">ASK A QUESTION</p>
             </DialogTitle>
             <DialogDescription>
               Please enter the details of your request. A member of our support

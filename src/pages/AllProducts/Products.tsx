@@ -470,213 +470,270 @@ const Products = () => {
               </div>
             </div>
 
-            <div className="xl:col-span-8 lg:col-span-9 md:col-span-8 md:order-2 row-span-1 order-1">
-              <div className="flex justify-between mb-14">
-                <div className="form-control w-[220px]">
-                  <label className="label"></label>
-                  <Select
-                    value={selectedOption}
-                    onChange={handleSelectChange}
-                    options={options}
-                    placeholder="Sort By"
-                  />
-                </div>
+            <div className="xl:col-span-8 lg:col-span-9 md:col-span-8 md:order-2 row-span-1 order-1  overflow-x-hidden">
+              <div>
+                <div className="flex justify-between mb-14">
+                  <div className="form-control w-[220px]">
+                    <label className="label"></label>
+                    <Select
+                      value={selectedOption}
+                      onChange={handleSelectChange}
+                      options={options}
+                      placeholder="Sort By"
+                    />
+                  </div>
 
-                <div className="flex justify-between mb-2">
-                  <div className="flex sm:gap-8 gap-4">
-                    <div
-                      className={`bg-[#00cde5] text-white p-2 cursor-pointer ${
-                        isGridLayout ? "opacity-100" : "opacity-50"
-                      }`}
-                      onClick={() => setIsGridLayout(true)}
-                    >
-                      <LayoutGrid />
-                    </div>
-                    <div
-                      className={`bg-[#00cde5] text-white p-2 cursor-pointer ${
-                        !isGridLayout ? "opacity-100" : "opacity-50"
-                      }`}
-                      onClick={() => setIsGridLayout(false)}
-                    >
-                      <List />
+                  <div className="flex justify-between mb-2">
+                    <div className="flex sm:gap-8 gap-4">
+                      <div
+                        className={`bg-[#00cde5] text-white p-2 cursor-pointer ${
+                          isGridLayout ? "opacity-100" : "opacity-50"
+                        }`}
+                        onClick={() => setIsGridLayout(true)}
+                      >
+                        <LayoutGrid />
+                      </div>
+                      <div
+                        className={`bg-[#00cde5] text-white p-2 cursor-pointer ${
+                          !isGridLayout ? "opacity-100" : "opacity-50"
+                        }`}
+                        onClick={() => setIsGridLayout(false)}
+                      >
+                        <List />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                {isGridLayout ? (
-                  // Grid layout
-                  <div className="grid lg:grid-cols-3 md:gap-6 grid-cols-2 gap-3 w-full">
-                    {isLoading
-                      ? [...Array(placeholderCount)].map((_, index) => (
-                          <div
-                            key={index}
-                            className="col-span-1 flex flex-col md:h-[380px] h-[315px] relative group bg-[#f5f5f5] bg-opacity-50 w-full rounded-lg shadow-xl"
-                          >
-                            <div className="flex items-center justify-center overflow-hidden relative w-full h-full">
-                              <Lottie animationData={spinner} loop={true} />
-                            </div>
-                          </div>
-                        ))
-                      : data?.data?.products?.map((item: TInputs) => (
-                          <div
-                            className="col-span-1 flex flex-col md:h-[380px] h-[315px] px-2 relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
-                            key={item._id}
-                          >
-                            <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
-                              <div>
-                                <img
-                                  src={item.image[0]}
-                                  alt=""
-                                  className="md:w-[120px] w-[100px] md:h-[120px] h-[100px] object-cover md:group-hover:scale-125 group-hover:scale-110 transition-transform duration-500 ease-in-out"
-                                />
+                <div>
+                  {isGridLayout ? (
+                    // Grid layout
+                    <div className="grid lg:grid-cols-3 md:gap-6 grid-cols-2 gap-3 w-full">
+                      {isLoading
+                        ? [...Array(placeholderCount)].map((_, index) => (
+                            <div
+                              key={index}
+                              className="col-span-1 flex flex-col md:h-[380px] h-[315px] relative group bg-[#f5f5f5] bg-opacity-50 w-full rounded-lg shadow-xl"
+                            >
+                              <div className="flex items-center justify-center overflow-hidden relative w-full h-full">
+                                <Lottie animationData={spinner} loop={true} />
                               </div>
                             </div>
-                            <div className="px-0 space-y-2">
-                              <div className="flex items-center justify-center">
-                                {[...Array(5)].map((_, i) => (
-                                  <Star
-                                    key={i}
-                                    className="md:size-5 size-[18px]"
-                                    color="orange"
-                                    fill="orange"
+                          ))
+                        : data?.data?.products?.map((item: TInputs) => (
+                            <div
+                              className="col-span-1 flex flex-col md:h-[380px] h-[315px] px-2 relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                              key={item._id}
+                            >
+                              <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
+                                <div>
+                                  <img
+                                    src={item.image[0]}
+                                    alt=""
+                                    className="md:w-[120px] w-[100px] md:h-[120px] h-[100px] object-cover md:group-hover:scale-125 group-hover:scale-110 transition-transform duration-500 ease-in-out"
                                   />
-                                ))}
+                                </div>
                               </div>
-                              <p className="text-center md:text-lg text-sm ">
-                                {item.productName}
-                              </p>
-                              <p className="text-center md:text-lg text-sm">
-                                Brand: {item.brand}
-                              </p>
-                              <p className="text-center text-lg font-bold text-[#1abfdc]">
-                                $ {item.price}
-                              </p>
-                              <div className="hidden group-hover:block transition-transform duration-500 ease-in-out">
-                                <div className="flex sm:justify-around justify-center items-center lg:space-x-1 space-x-1">
-                                  <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                    <Heart className=" w-8  h-8" />
-                                  </div>
-                                  <Link to={`/singleProduct/${item._id}`}>
-                                    <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
-                                      View Details
-                                    </Button>
-                                  </Link>
-                                  <div
-                                    className={`md:w-10 w-9 md:h-10 h-9 cursor-pointer rounded-full transition-all duration-500 ease-in-out flex items-center justify-center p-2 
+                              <div className="px-0 space-y-2">
+                                <div className="flex items-center justify-center">
+                                  {[...Array(5)].map((_, i) => (
+                                    <Star
+                                      key={i}
+                                      className="md:size-5 size-[18px]"
+                                      color="orange"
+                                      fill="orange"
+                                    />
+                                  ))}
+                                </div>
+                                <p className="text-center md:text-lg text-sm ">
+                                  {item.productName}
+                                </p>
+                                <p className="text-center md:text-lg text-sm">
+                                  Brand: {item.brand}
+                                </p>
+                                <p className="text-center text-lg font-bold text-[#1abfdc]">
+                                  $ {item.price}
+                                </p>
+                                <div className="hidden group-hover:block transition-transform duration-500 ease-in-out">
+                                  <div className="flex sm:justify-around justify-center items-center lg:space-x-1 space-x-1">
+                                    <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                      <Heart className=" w-8  h-8" />
+                                    </div>
+                                    <Link to={`/singleProduct/${item._id}`}>
+                                      <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[84px] md:w-[110px] md:h-[45px]">
+                                        View Details
+                                      </Button>
+                                    </Link>
+                                    <div
+                                      className={`md:w-10 w-9 md:h-10 h-9 cursor-pointer rounded-full transition-all duration-500 ease-in-out flex items-center justify-center p-2 
     ${
       item?.stockQuantity === 0 || item?.availability === false
         ? "cursor-not-allowed bg-gray-300"
         : "hover:text-white hover:bg-[#00cde5] md:hover:scale-110 hover:scale-90"
     }`}
-                                    onClick={() => {
-                                      if (
-                                        item?.stockQuantity > 0 &&
-                                        item?.availability
-                                      ) {
-                                        dispatch(addToCart(item));
+                                      onClick={() => {
+                                        if (
+                                          item?.stockQuantity > 0 &&
+                                          item?.availability
+                                        ) {
+                                          dispatch(addToCart(item));
+                                        }
+                                      }}
+                                      title={
+                                        item?.stockQuantity === 0 ||
+                                        item?.availability === false
+                                          ? "Item is StockOut"
+                                          : ""
                                       }
-                                    }}
-                                    title={
-                                      item?.stockQuantity === 0 ||
-                                      item?.availability === false
-                                        ? "Item is StockOut"
-                                        : ""
-                                    }
-                                  >
-                                    <ShoppingCart className="w-8 h-8" />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                  </div>
-                ) : (
-                  // List layout
-                  <div className="grid grid-cols-1 gap-10 xl:w-full lg:w-[710px] w-full mx-auto">
-                    {isLoading
-                      ? [...Array(6)].map((_, index) => (
-                          <div
-                            key={index}
-                            className="cgrid lg:grid-cols-12 grid-rows-12 gap-5 lg:h-[315px] md:h-[435px] sm:h-[420px] h-[450px]  group relative group bg-[#f5f5f5] bg-opacity-50 w-full rounded-lg shadow-xl"
-                          >
-                            <div className="flex items-center justify-center overflow-hidden relative w-full h-full">
-                              <Lottie animationData={spinner} loop={true} />
-                            </div>
-                          </div>
-                        ))
-                      : data?.data?.products
-                          ?.slice(0, 6)
-                          .map((item: TInputs) => (
-                            <div
-                              className="grid lg:grid-cols-12 grid-rows-12 gap-5 lg:h-[315px] md:h-[435px] sm:h-[420px] h-[450px] relative group bg-[#f5f5f5] hover:transition-transform  hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
-                              key={item._id}
-                            >
-                              <div className="flex items-center justify-center overflow-hidden relative group   lg:col-span-4 row-span-4 lg:h-[300px]  w-full h-[180px]">
-                                <div>
-                                  <img
-                                    src={item.image[0]}
-                                    alt=""
-                                    className="object-cover lg:group-hover:scale-125  group-hover:scale-110 transition-transform duration-500 ease-in-out w-full xl:h-[160px] h-[140px] mx-auto "
-                                  />
-                                </div>
-                              </div>
-                              <div className="py-6 px-4 lg:space-y-2 space-y-0 lg:col-span-8 row-span-8">
-                                <p className="md:text-lg font-bold text-base ">
-                                  {item.productName}
-                                </p>
-                                <p className="lg:text-lg text-[#797f89] md:text-base text-sm pt-1">
-                                  Brand: {item.brand}
-                                </p>
-                                <div className="flex items-center justify-between lg:pt-1 pt-4 pb-1">
-                                  <p className="text-xl font-bold text-[#1abfdc]">
-                                    $ {item.price}
-                                  </p>
-                                  <div className="flex">
-                                    {[...Array(5)].map((_, i) => (
-                                      <Star
-                                        key={i}
-                                        className="md:size-5 size-[18px]"
-                                        color="orange"
-                                        fill="orange"
-                                      />
-                                    ))}
-                                  </div>
-                                </div>
-                                <p className="text-base text-[#797f89] pt-2 ">
-                                  {item.description.length > 100
-                                    ? `${item.description.slice(0, 120)}...`
-                                    : item.description}
-                                </p>
-                                <div className="hidden group-hover:block transition-transform duration-500 ease-in-out pt-4">
-                                  <div className="flex justify-start items-center space-x-5 ">
-                                    <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
-                                      <Heart className=" w-8  h-8" />
-                                    </div>
-                                    <Link to={`/singleProduct/${item._id}`}>
-                                      <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[90px] md:w-[110px] md:h-[45px]">
-                                        View Details
-                                      </Button>
-                                    </Link>
-                                    <div
-                                      className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2"
-                                      onClick={() => dispatch(addToCart(item))}
                                     >
-                                      <ShoppingCart className="w-8   h-8" />
+                                      <ShoppingCart className="w-8 h-8" />
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           ))}
-                  </div>
-                )}
+                    </div>
+                  ) : (
+                    // List layout
+                    <div className="grid grid-cols-1 gap-10 xl:w-full lg:w-[710px] w-full mx-auto">
+                      {isLoading
+                        ? [...Array(6)].map((_, index) => (
+                            <div
+                              key={index}
+                              className="cgrid lg:grid-cols-12 grid-rows-12 gap-5 lg:h-[315px] md:h-[435px] sm:h-[420px] h-[450px]  group relative group bg-[#f5f5f5] bg-opacity-50 w-full rounded-lg shadow-xl"
+                            >
+                              <div className="flex items-center justify-center overflow-hidden relative w-full h-full">
+                                <Lottie animationData={spinner} loop={true} />
+                              </div>
+                            </div>
+                          ))
+                        : data?.data?.products
+                            ?.slice(0, 6)
+                            .map((item: TInputs) => (
+                              <div
+                                className="grid lg:grid-cols-12 grid-rows-12 gap-5 lg:h-[315px] md:h-[435px] sm:h-[420px] h-[450px] relative group bg-[#f5f5f5] hover:transition-transform  hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                                key={item._id}
+                              >
+                                <div className="flex items-center justify-center overflow-hidden relative group   lg:col-span-4 row-span-4 lg:h-[300px]  w-full h-[180px]">
+                                  <div>
+                                    <img
+                                      src={item.image[0]}
+                                      alt=""
+                                      className="object-cover lg:group-hover:scale-125  group-hover:scale-110 transition-transform duration-500 ease-in-out w-full xl:h-[160px] h-[140px] mx-auto "
+                                    />
+                                  </div>
+                                </div>
+                                <div className="py-6 px-4 lg:space-y-2 space-y-0 lg:col-span-8 row-span-8">
+                                  <p className="md:text-lg font-bold text-base ">
+                                    {item.productName}
+                                  </p>
+                                  <p className="lg:text-lg text-[#797f89] md:text-base text-sm pt-1">
+                                    Brand: {item.brand}
+                                  </p>
+                                  <div className="flex items-center justify-between lg:pt-1 pt-4 pb-1">
+                                    <p className="text-xl font-bold text-[#1abfdc]">
+                                      $ {item.price}
+                                    </p>
+                                    <div className="flex">
+                                      {[...Array(5)].map((_, i) => (
+                                        <Star
+                                          key={i}
+                                          className="md:size-5 size-[18px]"
+                                          color="orange"
+                                          fill="orange"
+                                        />
+                                      ))}
+                                    </div>
+                                  </div>
+                                  <p className="text-base text-[#797f89] pt-2 ">
+                                    {item.description.length > 100
+                                      ? `${item.description.slice(0, 120)}...`
+                                      : item.description}
+                                  </p>
+                                  <div className="hidden group-hover:block transition-transform duration-500 ease-in-out pt-4">
+                                    <div className="flex justify-start items-center space-x-5 ">
+                                      <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
+                                        <Heart className=" w-8  h-8" />
+                                      </div>
+                                      <Link to={`/singleProduct/${item._id}`}>
+                                        <Button className="bg-gradient-to-r from-[#00cde5] to-[#10798b] text-xs md:text-sm text-white h-[40px] w-[90px] md:w-[110px] md:h-[45px]">
+                                          View Details
+                                        </Button>
+                                      </Link>
+                                      <div
+                                        className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2"
+                                        onClick={() =>
+                                          dispatch(addToCart(item))
+                                        }
+                                      >
+                                        <ShoppingCart className="w-8   h-8" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="pt-24  md:hidden block">
+                <Pagination>
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious
+                        href="#"
+                        onClick={(e) => {
+                          if (currentPage === 1) {
+                            e.preventDefault();
+                          } else {
+                            handlePageChange(currentPage - 1);
+                          }
+                        }}
+                        className={
+                          currentPage === 1
+                            ? "cursor-not-allowed opacity-50"
+                            : ""
+                        }
+                      />
+                    </PaginationItem>
+
+                    {Array.from({ length: totalPages }).map((_, index) => (
+                      <PaginationItem key={index}>
+                        <PaginationLink
+                          href="#"
+                          isActive={currentPage === index + 1}
+                          onClick={() => handlePageChange(index + 1)}
+                        >
+                          {index + 1}
+                        </PaginationLink>
+                      </PaginationItem>
+                    ))}
+
+                    <PaginationItem>
+                      <PaginationNext
+                        href="#"
+                        onClick={(e) => {
+                          if (currentPage === totalPages) {
+                            e.preventDefault();
+                          } else {
+                            handlePageChange(currentPage + 1);
+                          }
+                        }}
+                        className={
+                          currentPage === totalPages
+                            ? "cursor-not-allowed opacity-50"
+                            : ""
+                        }
+                      />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
               </div>
             </div>
           </div>
 
-          <div className="pt-24">
+          <div className="pt-24 overflow-x-hidden md:block hidden">
             <Pagination>
               <PaginationContent>
                 <PaginationItem>

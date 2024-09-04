@@ -45,9 +45,9 @@ const MobileNav = () => {
         onClick={() => setIsOpen(false)}
       >
         <div
-          className={`fixed top-0 left-0 w-[60%]  shadow-lg transition-transform duration-500 transform  ${
+          className={`fixed top-0 left-0 md:w-[40%] w-[60%]  shadow-lg transition-transform duration-500 transform  ${
             isOpen ? "translate-x-0 " : "-translate-x-full"
-          } ${isScrolled ? "translate-y-[72px] fixed" : "translate-y-0 fixed"}`}
+          } ${isScrolled ? "translate-y-[75px] fixed" : "translate-y-0 fixed"}`}
         >
           <ul className="flex flex-col divide-y divide-gray-400 bg-slate-200 h-[200vh]">
             {Links.map((link) => (

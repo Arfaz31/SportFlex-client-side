@@ -121,7 +121,7 @@ const SingleProduct = () => {
                       <img
                         src={imgSrc}
                         alt={`Image ${index + 1}`}
-                        className="md:w-[100px] md:h-[90px] w-[80px] h-[80px] mx-auto p-1"
+                        className="md:w-[100px] md:h-[90px] w-[80px] h-[70px] mx-auto p-1"
                       />
                     </div>
                   ))}
@@ -237,22 +237,22 @@ const SingleProduct = () => {
                 </Link>
               </div>
 
-              <div className="flex items-center lg:gap-8 gap-5 mt-8">
-                <div className="flex gap-2 hover:text-[#00cde5] cursor-pointer items-center">
+              <div className="flex items-center lg:gap-8 sm:gap-5 gap-3 mt-8">
+                <div className="flex sm:gap-2 gap-1 hover:text-[#00cde5] cursor-pointer items-center">
                   <Share2 />
                   <div>
                     <ShareModal />
                   </div>
                 </div>
-                <div className="flex gap-2 hover:text-[#00cde5] cursor-pointe items-centerr">
+                <div className="flex sm:gap-2 gap-1 hover:text-[#00cde5] cursor-pointe items-centerr">
                   <CircleHelp />
                   <div>
                     <AskQuestion />
                   </div>
                 </div>
-                <div className="flex gap-2 hover:text-[#00cde5] cursor-pointer">
+                <div className="flex sm:gap-2 gap-1 hover:text-[#00cde5] cursor-pointer">
                   <MessageSquareText />
-                  <p>FAQ</p>
+                  <p className="sm:text-base text-sm">FAQ</p>
                 </div>
               </div>
               <div className="flex items-center my-7">
@@ -283,7 +283,7 @@ const SingleProduct = () => {
               }`}
               onClick={() => handleTabClick("description")}
             >
-              <p className="md:text-xl sm:text-lg text-base font-bold pb-2">
+              <p className="md:text-xl sm:text-lg text-[15px] font-bold pb-2">
                 Description
               </p>
               {activeTab === "description" && (
@@ -299,7 +299,7 @@ const SingleProduct = () => {
               }`}
               onClick={() => handleTabClick("shipping")}
             >
-              <p className="md:text-xl sm:text-lg text-base font-bold pb-2">
+              <p className="md:text-xl sm:text-lg text-[15px] font-bold pb-2">
                 Shipping Info
               </p>
 
@@ -315,7 +315,7 @@ const SingleProduct = () => {
               }`}
               onClick={() => handleTabClick("reviews")}
             >
-              <p className="md:text-xl sm:text-lg text-base font-bold pb-2">
+              <p className="md:text-xl sm:text-lg text-[15px] font-bold pb-2">
                 Reviews
               </p>
 

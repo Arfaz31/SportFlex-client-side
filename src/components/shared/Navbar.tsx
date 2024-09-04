@@ -26,7 +26,7 @@ const Navbar = () => {
       <div
         className={`${
           isScrolled
-            ? "bg-[#000000] fixed top-0 left-0 xl:-translate-y-12 h-36 xl:pt-14 pt-[92px] -translate-y-[76px] "
+            ? "bg-[#000000] fixed top-0 left-0 xl:-translate-y-12 h-[146px] xl:pt-14 pt-[95px] -translate-y-[76px] "
             : "bg-transparent absolute top-0 left-0 xl:py-3 py-6 px-3 xl-px-0 "
         }w-full z-10 transition-all transform duration-500  ease-in-out`}
       >

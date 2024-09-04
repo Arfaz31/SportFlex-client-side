@@ -14,10 +14,10 @@ const NewsletterBannner = () => {
     }
   };
   return (
-    <Container>
+    <Container className="xl:px-5 px-0">
       <div className="relative mb-12">
         <img
-          className="object-cover w-full xl:h-[500px] h-[450px] rounded-lg"
+          className="object-cover w-full xl:h-[500px] h-[450px] "
           src={banner}
           alt=""
         />
