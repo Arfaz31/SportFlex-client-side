@@ -4,7 +4,7 @@ SPORTFLEX is an e-commerce platform offering a wide range of sports goods and ap
 
 ## Live Demo
 
-Check out the live demo of the project here: https://sport-flex-client-side.vercel.app/
+Check out the live demo of the project here: https://sport-flex.vercel.app/
 
 ## Features
 
