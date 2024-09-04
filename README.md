@@ -2,6 +2,10 @@
 
 SPORTFLEX is an e-commerce platform offering a wide range of sports goods and apparel for both men and women. From sports equipment to activewear, SPORTFLEX aims to provide a seamless shopping experience with a responsive and user-friendly interface.
 
+## Live Demo
+
+Check out the live demo of the project here: https://sport-flex-client-side.vercel.app/
+
 ## Features
 
 - **Fully Responsive Design:** Every page of the application is designed to be responsive, ensuring optimal viewing and interaction on all devices, including desktops, tablets, and mobile phones.
