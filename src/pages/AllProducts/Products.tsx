@@ -141,7 +141,7 @@ const Products = () => {
       </div>
       <div>
         <Container className="md:my-24 mt-20">
-          <div className="grid md:grid-cols-12 grid-rows-1 xl:gap-20 md:gap-10 gap-36 xl:px-0  sm:px-3 px-1">
+          <div className="grid md:grid-cols-12 grid-rows-1 xl:gap-14 md:gap-10 gap-36 xl:px-0  sm:px-3 px-0">
             <div className="xl:col-span-4 lg:col-span-3 md:col-span-4 row-span-1 md:order-1 order-2">
               <div className="flex w-full max-w-sm items-center ">
                 <input
@@ -504,7 +504,7 @@ const Products = () => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className="md:px-2 px-0">
                   {isGridLayout ? (
                     // Grid layout
                     <div className="grid lg:grid-cols-3 md:gap-6 grid-cols-2 gap-3 w-full">
