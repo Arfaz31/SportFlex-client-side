@@ -104,7 +104,7 @@ const MdNewProduct = () => {
                         ?.slice(0, 6)
                         .map((item: TInputs) => (
                           <div
-                            className="col-span-1 flex flex-col md:h-[390px] sm:h-[310px] h-[320px] relative group  bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out  bg-opacity-50  w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                            className="col-span-1 flex flex-col md:h-[390px] sm:h-[310px] h-[320px] relative group  bg-[#f5f5f5]   bg-opacity-50  w-full rounded-lg shadow-xl "
                             key={item?._id}
                           >
                             <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">

@@ -51,7 +51,7 @@ const FlashDeals = () => {
                       <Card className="border-none ">
                         <CardContent className="flex flex-col relative aspect-square items-center justify-center sm:p-2 p-1">
                           <div className="w-full">
-                            <div className=" flex flex-col  lg:h-[470px] md:h-[475px] sm:h-[380px] h-[395px] relative group  bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out  bg-opacity-50  w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]">
+                            <div className=" flex flex-col  lg:h-[470px] md:h-[475px] sm:h-[380px] h-[395px] relative group  bg-[#f5f5f5]  bg-opacity-50  w-full rounded-lg shadow-xl ">
                               <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[180px] h-[130px]">
                                 <div>
                                   <img

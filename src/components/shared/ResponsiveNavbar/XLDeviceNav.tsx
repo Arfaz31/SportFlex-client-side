@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/hover-card";
 import SearchModal from "../SearchModal";
 import { useAppSelector } from "@/redux/hook";
+import { Button } from "@/components/ui/button";
 
 const XLDeviceNav = () => {
   const products = useAppSelector((store) => store.cart.products);
@@ -58,9 +59,9 @@ const XLDeviceNav = () => {
           <div>
             <HoverCard>
               <HoverCardTrigger>
-                <div className="w-10 h-10 cursor-pointer hover:bg-[#00cde5] rounded-full transition-all  duration-500 hover:scale-110 ease-in-out flex items-center justify-center p-2">
+                <Button className="w-10 h-10 cursor-pointer bg-transparent hover:bg-[#00cde5] rounded-full transition-all  duration-500 hover:scale-110 ease-in-out flex items-center justify-center p-2">
                   <UserRound className="w-8 h-8" />
-                </div>
+                </Button>
               </HoverCardTrigger>
               <HoverCardContent className="w-[170px] text-center ">
                 <div className="flex justify-center gap-2">

@@ -35,7 +35,7 @@ const productApi = baseApi.injectEndpoints({
         page?: number;
         limit?: number;
       } = {}) => {
-        // Default parameter to an empty object
+        // Without {} as a default value, if you call the function without an argument, you would get an error because you can't destructure undefined.
         const params = new URLSearchParams();
         if (categoryId) {
           params.append("categoryId", categoryId);

@@ -180,7 +180,7 @@ const XlNewProducts = () => {
                                   ?.slice(0, 2)
                                   .map((item: TInputs) => (
                                     <div
-                                      className="col-span-1 flex flex-col md:h-[380px] h-[290px] relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                                      className="col-span-1 flex flex-col md:h-[380px] h-[290px] relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 rounded-lg shadow-xl "
                                       key={item._id}
                                     >
                                       <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
@@ -287,7 +287,7 @@ const XlNewProducts = () => {
                                   ?.slice(2, 4)
                                   .map((item: TInputs) => (
                                     <div
-                                      className="col-span-1 flex flex-col md:h-[380px] h-[290px] relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                                      className="col-span-1 flex flex-col md:h-[380px] h-[290px] relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 rounded-lg shadow-xl "
                                       key={item._id}
                                     >
                                       <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">

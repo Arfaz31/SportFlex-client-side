@@ -45,7 +45,7 @@ const RelatedProduct = () => {
                   ? [...Array(8)].map((_, index) => (
                       <CarouselItem
                         key={index}
-                        className="basis-1/2 md:basis-1/3 lg:basis-1/4"
+                        className=" md:basis-1/3 lg:basis-1/4"
                       >
                         <Card className="border-0 h-full rounded-none">
                           <CardContent className="relative overflow-hidden">
@@ -63,21 +63,21 @@ const RelatedProduct = () => {
                       .map((product: TInputs) => (
                         <CarouselItem
                           key={product?._id}
-                          className="basis-1/2 md:basis-1/3 lg:basis-1/4"
+                          className=" md:basis-1/3 lg:basis-1/4"
                         >
                           <div className="p-1">
                             <Card className="border-none">
                               <CardContent className="flex flex-col relative aspect-square items-center justify-center sm:p-2 p-1">
-                                <div className="w-full">
-                                  <div className="flex flex-col md:h-[380px] h-[315px] px-2 relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]">
-                                    <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
+                                <div className="md:w-full w-[290px]">
+                                  <div className="flex flex-col md:h-[380px] h-[400px] px-2 relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl ">
+                                    <div className="flex items-center  justify-center overflow-hidden relative group w-full md:h-[160px] h-[200px]">
                                       <img
                                         src={product?.image[0]}
                                         alt=""
-                                        className="md:w-[120px] w-[100px] md:h-[120px] h-[100px] object-cover md:group-hover:scale-125 group-hover:scale-110 transition-transform duration-500 ease-in-out"
+                                        className="md:w-[120px] w-[170px] md:h-[120px] h-[180px] object-cover md:group-hover:scale-125 group-hover:scale-110 transition-transform duration-500 ease-in-out pt-2"
                                       />
                                     </div>
-                                    <div className="px-0 space-y-2">
+                                    <div className="px-0 space-y-2 pt-3">
                                       <div className="flex items-center justify-center">
                                         {[...Array(5)].map((_, i) => (
                                           <Star

@@ -98,7 +98,7 @@ const Payment = () => {
       </div>
       <Container className="mt-16 mx-auto xl:px-0 lg:px-5 px-3">
         <div className="flex lg:flex-row flex-col justify-center xl:gap-32 lg:gap-20 gap-14">
-          <div className=" border border-gray-500 p-8 w-full h-[600px] ">
+          <div className=" border border-gray-500 p-8 w-full h-[800px] ">
             <h2 className="text-xl font-bold pb-8">SHIPPING INFORMATION</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-2 gap-10 pb-8">

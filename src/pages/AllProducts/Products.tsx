@@ -504,7 +504,7 @@ const Products = () => {
                     </div>
                   </div>
                 </div>
-                <div className="md:px-2 px-0">
+                <div className=" px-0 ">
                   {isGridLayout ? (
                     // Grid layout
                     <div className="grid lg:grid-cols-3 md:gap-6 grid-cols-2 gap-3 w-full">
@@ -521,7 +521,7 @@ const Products = () => {
                           ))
                         : data?.data?.products?.map((item: TInputs) => (
                             <div
-                              className="col-span-1 flex flex-col md:h-[380px] h-[315px] px-2 relative group bg-[#f5f5f5] hover:transition-transform md:hover:scale-105 hover:scale-100 hover:duration-500 hover:ease-in-out bg-opacity-50 w-full rounded-lg shadow-xl hover:border-2 hover:border-[rgb(0,205,229)]"
+                              className="col-span-1 flex flex-col md:h-[380px] h-[315px] px-2 relative group bg-[#f5f5f5]  bg-opacity-50 w-full rounded-lg shadow-xl "
                               key={item._id}
                             >
                               <div className="flex items-center justify-center overflow-hidden relative group w-full md:h-[160px] h-[120px]">
@@ -553,7 +553,7 @@ const Products = () => {
                                 <p className="text-center text-lg font-bold text-[#1abfdc]">
                                   $ {item.price}
                                 </p>
-                                <div className="hidden group-hover:block transition-transform duration-500 ease-in-out">
+                                <div className="hidden group-hover:block transition-all duration-500 ease-in-out">
                                   <div className="flex sm:justify-around justify-center items-center lg:space-x-1 space-x-1">
                                     <div className="md:w-10 w-9 md:h-10 h-9 cursor-pointer hover:text-white hover:bg-[#00cde5] rounded-full transition-all duration-500 md:hover:scale-110 hover:scale-90 ease-in-out flex items-center justify-center p-2">
                                       <Heart className=" w-8  h-8" />

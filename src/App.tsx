@@ -8,7 +8,7 @@ const App = () => {
     const fetchData = async () => {
       try {
         // Simulate data fetching
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
